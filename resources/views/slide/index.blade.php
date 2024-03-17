@@ -41,7 +41,7 @@
 	            {data: 'title', name: 'title'},
 				{data: 'image',
 				"render": function (data) {
-					return '<img src="' + data + '" width="70" height="30"/>';
+					return '<img src="public/' + data + '" width="70" height="30"/>';
 				}, name: 'image'},
 	            {data: 'detail', name: 'detail'},
 	            {data: 'status_text', name: 'status'},

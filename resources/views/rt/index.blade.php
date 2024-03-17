@@ -43,7 +43,7 @@
 	            {data: 'nama', name: 'nama'},
 				{data: 'foto',
 				"render": function (data) {
-					return '<img src="' + data + '" width="30" height="30"/>';
+					return '<img src="public/' + data + '" width="30" height="30"/>';
 				}, name: 'foto'},
 	            {data: 'ketua', name: 'ketua'},
 	            {data: 'sekertaris', name: 'sekertaris'},
