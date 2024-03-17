@@ -41,6 +41,7 @@
 							<div class="form-group">
 								<label for="">Ganti Foto Kegiatan</label>
 								<input type="file" name="images" class="form-control" placeholder="Input ">
+								<span>Upload Foto Max 2 Mb</span>
 							</div>
 						</div>
 					</div>

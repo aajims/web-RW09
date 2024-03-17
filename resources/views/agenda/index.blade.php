@@ -2,6 +2,9 @@
 
 @section('content')
 
+		<div class="tambah">
+			<a href="agenda/add" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add Data Agenda</a>
+		</div>
 		<div class="card-body">
 			<table class="table table-bordered table-striped">
 				<thead>

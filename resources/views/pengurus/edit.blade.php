@@ -32,6 +32,11 @@
 						<span class="text-danger">{{ $errors->first('periode') }}</span>
 					</div>
 					<div class="form-group">
+						<label for="">No Handphone</label>
+						<input type="number" name="no" class="form-control" value="{{ $pengurus->nohp }}" placeholder="Input No Handphone">
+						<span class="text-danger">{{ $errors->first('no') }}</span>
+					</div>
+					<div class="form-group">
 						<label for="">Foto</label>
 						<div class="pengurus">
 							<?php if ($pengurus->foto === null) { ?>
@@ -40,8 +45,10 @@
 								<img class="img-pengurus" src="{{ asset($pengurus->foto) }}" />
 							<?php } ?>
 						</div>
+						<label for="">Ganti Foto</label>
 						<input type="file" name="foto" class="form-control" placeholder="Input foto">
 						<span class="text-danger">{{ $errors->first('foto') }}</span>
+						<span>Upload Foto Max 2 Mb</span>
 					</div>
 				</div>
 				<?php

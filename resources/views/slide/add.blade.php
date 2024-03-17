@@ -24,6 +24,7 @@
 							<div class="form-group">
 								<label for="">Image Slide</label>
 								<input type="file" name="image" class="form-control"  placeholder="Input ">
+								<span>Upload Foto Max 2 Mb</span>
 							</div>
 						</div>
 					</div>

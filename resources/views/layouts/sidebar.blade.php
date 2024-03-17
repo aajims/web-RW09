@@ -27,7 +27,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ url('profil') }}" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Profil User
               </p>
@@ -127,6 +127,23 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Data Penduduk
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
               @elseif(Auth::user()->role == 'Admin')
               <li class="nav-header">MASTER DATA</li>
@@ -184,7 +201,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-podcast"></i>
+                  <i class="nav-icon fas fa-calendar-plus"></i>
                   <p>
                     Agenda Kegiatan
                     <i class="right fas fa-angle-left"></i>
@@ -201,7 +218,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-podcast"></i>
+                  <i class="nav-icon fas fa-camera"></i>
                   <p>
                     Foto Kegiatan
                     <i class="right fas fa-angle-left"></i>
@@ -212,6 +229,23 @@
                     <a href="{{ url('foto') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>List Foto</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Data Penduduk
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('penduduk') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Penduduk</p>
                     </a>
                   </li>
                 </ul>
@@ -264,6 +298,7 @@
               </li>
             </ul>
           </li>
+          
 
           @elseif(Auth::user()->role == 'staff')
           <li class="nav-item has-treeview">

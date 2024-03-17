@@ -13,6 +13,7 @@
 						<th>Name</th>
 						<th>Jabatan</th>
 						<th>Periode</th>
+						<th>No Handphone</th>
 						<th>Foto</th>
 						<th>Action</th>
 					</tr>
@@ -42,6 +43,7 @@
 	            {data: 'name', name: 'name'},
 	            {data: 'jabatans.name', name: 'jabatan'},
 	            {data: 'periode', name: 'periode'},
+	            {data: 'nohp', name: 'nohp'},
 	            {data: 'foto',
 				"render": function (data) {
 					return '<img src="public/' + data + '" width="30" height="30"/>';
