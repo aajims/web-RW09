@@ -44,7 +44,7 @@
 	            {data: 'periode', name: 'periode'},
 	            {data: 'foto',
 				"render": function (data) {
-					return '<img src="' + data + '" width="30" height="30"/>';
+					return '<img src="public/' + data + '" width="30" height="30"/>';
 				},
 				 name: 'foto'},
 	            {data: 'action', name: 'action'}

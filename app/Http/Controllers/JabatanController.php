@@ -52,9 +52,9 @@ class JabatanController extends Controller
      {
         $title = 'jabatan';
         $subtitle = 'Edit jabatan';
-        $ag = Jabatan::where('id',$id)->first();
+        $jabatan = Jabatan::where('id',$id)->first();
 
-        return view('jabatan.edit', compact('title', 'subtitle', 'ag'));
+        return view('jabatan.edit', compact('title', 'subtitle', 'jabatan'));
     }
 
     public function update(Request $request,$id){
