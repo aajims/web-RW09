@@ -129,77 +129,94 @@
           </li>
 
               @elseif(Auth::user()->role == 'Admin')
-              <li class="nav-item">
-                <a href="{{ url('slide') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Data Slide</p>
+              <li class="nav-header">MASTER DATA</li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-envelope"></i>
+                  <p>
+                    Data Admin Master
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('slide') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Data Slide</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('rt') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Data RT</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('jabatan') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Jabatan</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="{{ url('rt') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Data RT</p>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-podcast"></i>
+                  <p>
+                    Data Pengurus
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('pengurus') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Pengurus</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('pengurus/add') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add Pengurus</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="{{ url('jabatan') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Jabatan</p>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-podcast"></i>
+                  <p>
+                    Agenda Kegiatan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('agenda') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Agenda</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-podcast"></i>
-              <p>
-                Data Pengurus
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('pengurus') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Pengurus</p>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-podcast"></i>
+                  <p>
+                    Foto Kegiatan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('foto') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Foto</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-podcast"></i>
-              <p>
-                Agenda Kegiatan
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('agenda') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Agenda</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-podcast"></i>
-              <p>
-                Foto Kegiatan
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('foto') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Foto</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+
           @elseif(Auth::user()->role == 'Bendahara')
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
