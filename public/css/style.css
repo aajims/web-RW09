@@ -1,0 +1,24 @@
+.error {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.pengurus {
+    padding: 15px 0;
+}
+.img-pengurus {
+    height: 90px!important;
+    height: auto;
+}
+.img-slide {
+    height: 90px!important;
+    width: 200px;
+}
+.tambah {
+    padding: 15px 25px;
+}
+.btn-profil {
+    text-align: right;
+    padding: 29px 0;
+}
