@@ -24,8 +24,7 @@ class AgendaKegiatanController extends Controller
         $datatables = Datatables::of($agenda)
         ->addIndexColumn()
         ->addColumn('action',function($head){
-            return '<center><a href="agenda/'.$head->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>
-            <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$head->id.'" data-original-title="Delete" class="btn btn-sm btn-danger deleteData"><i class="fa fa-trash"></i> Delete</a></center>';
+            return '<center><a href="agenda/'.$head->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>';
         });
 
         return $datatables->make(true);

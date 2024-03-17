@@ -34,12 +34,13 @@
 							<div class="form-group">
 								<label for="">Ganti Image Slide</label>
 								<input type="file" name="image" class="form-control" placeholder="Input ">
+								<span>Upload Foto Max 2 Mb</span>
 							</div>
 						</div>
 						<div class="col">
 							<div class="form-group">
 								<label for="">Status Slide</label>
-								<div><?php if ($slide->status === 1) { ?>
+								<div><?php if ($slide->status == '1') { ?>
 									<input type="radio" name="status" value="1" checked /> Aktif <br/>
 									<input type="radio" name="status" value="2" /> Tidak Aktif
 								<?php } else { ?>

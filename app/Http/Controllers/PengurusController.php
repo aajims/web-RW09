@@ -33,7 +33,7 @@ class PengurusController extends Controller
 
     public function yajra(Request $request){
         $pengurus = Pengurus::with('jabatans')->select([
-            'id', 'name', 'jabatan_id', 'periode', 'foto']);
+            'id', 'name', 'jabatan_id', 'periode', 'nohp', 'foto']);
         $datatables = Datatables::of($pengurus)
         ->addIndexColumn()
         ->addColumn('action',function($head){
@@ -70,6 +70,7 @@ class PengurusController extends Controller
          $pengurus->name = $request->input('name');
          $pengurus->jabatan_id = $request->input('jabatan_id');
          $pengurus->periode = $request->input('periode');
+         $pengurus->nohp = $request->input('no');
          $pengurus->foto = $destinationPath;
          $pengurus->save();
          Alert::success('Success', 'Data Berhasil di Simpan');
@@ -106,6 +107,7 @@ class PengurusController extends Controller
          $pengurus->name = $request->input('name');
          $pengurus->jabatan_id = $request->input('jabatan_id');
          $pengurus->periode = $request->input('periode');
+         $pengurus->nohp = $request->input('no');
          $oldFile = $pengurus->foto;
          if (file_exists($destinationPath)) {
             unlink($oldFile);
@@ -119,6 +121,7 @@ class PengurusController extends Controller
             $pengurus->name = $request->input('name');
             $pengurus->jabatan_id = $request->input('jabatan_id');
             $pengurus->periode = $request->input('periode');
+            $pengurus->nohp = $request->input('no');
             $pengurus->save();
             Alert::success('Success', 'Data Berhasil di Update');
             return redirect('pengurus');

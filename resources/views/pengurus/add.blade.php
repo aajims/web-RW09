@@ -29,9 +29,14 @@
 						<span class="text-danger">{{ $errors->first('periode') }}</span>
 					</div>
 					<div class="form-group">
+						<label for="">No Handphone</label>
+						<input type="number" name="no" class="form-control" id="" placeholder="Input No Handphone">
+						<span class="text-danger">{{ $errors->first('no') }}</span>
+					</div>
+					<div class="form-group">
 						<label for="">Foto</label>
 						<input type="file" name="foto" class="form-control" id="" placeholder="Input foto">
-						<span>Max Size 2 Mb</span>
+						<span>Upload Foto Max 2 Mb</span>
 						<span class="text-danger">{{ $errors->first('foto') }}</span>
 					</div>
 				</div>

@@ -24,6 +24,7 @@
 							<div class="form-group">
 								<label for="">Foto Ketua RT</label>
 								<input type="file" name="foto" class="form-control"  placeholder="Input Nama Ketua RT">
+								<span>Upload Foto Max 2 Mb</span>
 							</div>
 						</div>
 					</div>

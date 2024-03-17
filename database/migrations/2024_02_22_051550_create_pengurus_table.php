@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('foto',120);
             $table->integer('jabatan_id');
             $table->string('periode',120);
+            $table->string('nohp',15);
             $table->timestamps();
         });
     }
