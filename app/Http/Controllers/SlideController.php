@@ -104,7 +104,7 @@ class SlideController extends Controller
          
             $slide = Slide::find($id);
             $oldFile = $slide->image;
-            if (file_exists($slide->image)) {
+            if (file_exists($oldFile)) {
                 unlink($oldFile);
              }
             $slide->title = $request->input('title');

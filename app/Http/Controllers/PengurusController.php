@@ -59,22 +59,33 @@ class PengurusController extends Controller
             'foto' => 'file|image|max:2048', // Maksimal 2 MB
          ]);
 
-         $picName = $request->file('foto')->getClientOriginalExtension();
-         $picName = Carbon::now()->timestamp. '.' . $picName;
-         $destinationPath = 'assets/img/pengurus/' . $picName;
-         $img = Image::make($request->file('foto'));
-         $img->resize(165, 165);
-         $img->save($destinationPath);
+         if ($request->hasFile('foto')) {
+            $picName = $request->file('foto')->getClientOriginalExtension();
+            $picName = Carbon::now()->timestamp. '.' . $picName;
+            $destinationPath = 'assets/img/pengurus/' . $picName;
+            $img = Image::make($request->file('foto'));
+            $img->resize(165, 165);
+            $img->save($destinationPath);
 
-         $pengurus = new Pengurus;
-         $pengurus->name = $request->input('name');
-         $pengurus->jabatan_id = $request->input('jabatan_id');
-         $pengurus->periode = $request->input('periode');
-         $pengurus->nohp = $request->input('no');
-         $pengurus->foto = $destinationPath;
-         $pengurus->save();
-         Alert::success('Success', 'Data Berhasil di Simpan');
-         return redirect('pengurus');
+            $pengurus = new Pengurus;
+            $pengurus->name = $request->input('name');
+            $pengurus->jabatan_id = $request->input('jabatan_id');
+            $pengurus->periode = $request->input('periode');
+            $pengurus->nohp = $request->input('no');
+            $pengurus->foto = $destinationPath;
+            $pengurus->save();
+            Alert::success('Success', 'Data Berhasil di Simpan');
+            return redirect('pengurus');
+         } else {
+            $pengurus = new Pengurus;
+            $pengurus->name = $request->input('name');
+            $pengurus->jabatan_id = $request->input('jabatan_id');
+            $pengurus->periode = $request->input('periode');
+            $pengurus->nohp = $request->input('no');
+            $pengurus->save();
+            Alert::success('Success', 'Data Berhasil di Simpan');
+            return redirect('pengurus');
+         }
     }
 
     public function edit($id)
@@ -96,25 +107,25 @@ class PengurusController extends Controller
          ]);
 
          if ($request->hasFile('foto')) {
-         $picName = $request->file('foto')->getClientOriginalExtension();
-         $picName = Carbon::now()->timestamp. '.' . $picName;
-         $destinationPath = 'assets/img/pengurus/' . $picName;
-         $img = Image::make($request->file('foto'));
-         $img->resize(165, 165);
-         $img->save($destinationPath);
+            $picName = $request->file('foto')->getClientOriginalExtension();
+            $picName = Carbon::now()->timestamp. '.' . $picName;
+            $destinationPath = 'assets/img/pengurus/' . $picName;
+            $img = Image::make($request->file('foto'));
+            $img->resize(165, 165);
+            $img->save($destinationPath);
 
-         $pengurus = Pengurus::find($id);
-         $pengurus->name = $request->input('name');
-         $pengurus->jabatan_id = $request->input('jabatan_id');
-         $pengurus->periode = $request->input('periode');
-         $pengurus->nohp = $request->input('no');
-         $oldFile = $pengurus->foto;
-         if (file_exists($destinationPath)) {
-            unlink($oldFile);
-         }
-         $pengurus->foto = $destinationPath;
-         $pengurus->save();
-            Alert::success('Success', 'Data Berhasil di Update');
+            $pengurus = Pengurus::find($id);
+            $pengurus->name = $request->input('name');
+            $pengurus->jabatan_id = $request->input('jabatan_id');
+            $pengurus->periode = $request->input('periode');
+            $pengurus->nohp = $request->input('no');
+            $oldFile = $pengurus->foto;
+            if (file_exists($oldFile)) {
+                unlink($oldFile);
+            } 
+            $pengurus->foto = $destinationPath;
+            $pengurus->save();
+                Alert::success('Success', 'Data Berhasil di Update');
             return redirect('pengurus');
          } else {
             $pengurus = Pengurus::find($id);

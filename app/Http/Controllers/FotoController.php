@@ -115,7 +115,7 @@ class FotoController extends Controller
          $foto->agenda_id = $request->input('agenda_id');
          $foto->caption = $request->input('caption');
          $oldFile = $foto->foto;
-         if (file_exists($destinationPath)) {
+         if (file_exists($oldFile)) {
             unlink($oldFile);
          }
          $foto->images = $destinationPath;
