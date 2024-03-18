@@ -62,10 +62,11 @@ class PengurusController extends Controller
          if ($request->hasFile('foto')) {
             $picName = $request->file('foto')->getClientOriginalExtension();
             $picName = Carbon::now()->timestamp. '.' . $picName;
+            $uploadedImage = $request->foto->move(public_path('assets/img/pengurus/'), $picName);
             $destinationPath = 'assets/img/pengurus/' . $picName;
-            $img = Image::make($request->file('foto'));
+            $img = Image::make($uploadedImage);
             $img->resize(165, 165);
-            $img->save(public_path($destinationPath));
+            $img->save($uploadedImage);
 
             $pengurus = new Pengurus;
             $pengurus->name = $request->input('name');
@@ -109,10 +110,11 @@ class PengurusController extends Controller
          if ($request->hasFile('foto')) {
             $picName = $request->file('foto')->getClientOriginalExtension();
             $picName = Carbon::now()->timestamp. '.' . $picName;
+            $uploadedImage = $request->foto->move(public_path('assets/img/pengurus/'), $picName);
             $destinationPath = 'assets/img/pengurus/' . $picName;
-            $img = Image::make($request->file('foto'));
+            $img = Image::make($uploadedImage);
             $img->resize(165, 165);
-            $img->save(public_path($destinationPath));
+            $img->save($uploadedImage);
 
             $pengurus = Pengurus::find($id);
             $pengurus->name = $request->input('name');
