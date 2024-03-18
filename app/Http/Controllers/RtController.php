@@ -62,8 +62,9 @@ class RtController extends Controller
          if ($request->hasFile('foto')) {
             $picName = $request->file('foto')->getClientOriginalExtension();
             $picName = Carbon::now()->timestamp. '.' . $picName;
-            $destinationPath = 'assets/img/rt/' . $picName;
-            $img = Image::make($request->file('foto'));
+            $uploadedImage = $request->foto->move(public_path('assets/img/rt/'), $picName);
+            $destinationPath = 'assets/img/rt/'.$picName;
+            $img = Image::make($uploadedImage);
             $img->resize(165, 165);
             $img->save($destinationPath);
 
@@ -111,8 +112,9 @@ class RtController extends Controller
         if ($request->hasFile('foto')) {
         $picName = $request->file('foto')->getClientOriginalExtension();
         $picName = Carbon::now()->timestamp. '.' . $picName;
-        $destinationPath = 'assets/img/rt/' . $picName;
-        $img = Image::make($request->file('foto'));
+        $uploadedImage = $request->foto->move(public_path('assets/img/rt/'), $picName);
+        $destinationPath = 'assets/img/rt/'.$picName;
+        $img = Image::make($uploadedImage);
         $img->resize(165, 165);
         $img->save($destinationPath);
 
