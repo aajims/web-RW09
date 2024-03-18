@@ -67,7 +67,7 @@ class SlideController extends Controller
         $destinationPath = 'assets/img/slide/'.$picName;
         $img = Image::make($uploadedImage);
         $img->resize(365, 165);
-        $img->save($destinationPath);
+        $img->save($uploadedImage);
 
          $slide = new slide;
          $slide->title = $request->input('title');
@@ -102,7 +102,7 @@ class SlideController extends Controller
             $destinationPath = 'assets/img/slide/'.$picName;
             $img = Image::make($uploadedImage);
             $img->resize(365, 165);
-            $img->save($destinationPath);
+            $img->save($uploadedImage);
          
             $slide = Slide::find($id);
             $oldFile = $slide->image;
