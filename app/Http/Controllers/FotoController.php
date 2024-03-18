@@ -72,10 +72,11 @@ class FotoController extends Controller
 
          $picName = $request->file('images')->getClientOriginalExtension();
          $picName = Carbon::now()->timestamp. '.' . $picName;
+         $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
-         $img = Image::make($request->file('images'));
+         $img = Image::make($uploadedImage);
          $img->resize(255, 255);
-         $img->save($destinationPath);
+         $img->save($uploadedImage);
 
          $foto = new Foto;
          $foto->agenda_id = $request->input('agenda_id');
@@ -106,10 +107,11 @@ class FotoController extends Controller
          if ($request->hasFile('images')) {
          $picName = $request->file('images')->getClientOriginalExtension();
          $picName = Carbon::now()->timestamp. '.' . $picName;
+         $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
-         $img = Image::make($request->file('images'));
+         $img = Image::make($uploadedImage);
          $img->resize(255, 255);
-         $img->save($destinationPath);
+         $img->save($uploadedImage);
 
          $foto = Foto::find($id);
          $foto->agenda_id = $request->input('agenda_id');

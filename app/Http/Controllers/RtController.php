@@ -66,7 +66,7 @@ class RtController extends Controller
             $destinationPath = 'assets/img/rt/'.$picName;
             $img = Image::make($uploadedImage);
             $img->resize(165, 165);
-            $img->save($destinationPath);
+            $img->save($uploadedImage);
 
             $rt = new Rt;
             $rt->nama = $request->input('nama');
@@ -116,7 +116,7 @@ class RtController extends Controller
         $destinationPath = 'assets/img/rt/'.$picName;
         $img = Image::make($uploadedImage);
         $img->resize(165, 165);
-        $img->save($destinationPath);
+        $img->save($uploadedImage);
 
          $rt = Rt::find($id);
          $rt->nama = $request->input('nama');
