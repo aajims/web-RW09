@@ -22,3 +22,19 @@
     text-align: right;
     padding: 29px 0;
 }
+.bg-aqua {
+    background-color: #00c0ef !important;
+    color: #fff !important;
+}
+.bg-green {
+    background-color: #00a65a !important;
+    color: #fff !important;
+}
+.bg-yellow {
+    background-color: #f39c12 !important;
+    color: #fff !important;
+}
+.bg-red {
+    background-color: #dd4b39 !important;
+    color: #fff !important;
+}

@@ -119,7 +119,7 @@ class RtController extends Controller
          $rt = Rt::find($id);
          $rt->nama = $request->input('nama');
          $oldFile = $rt->foto;
-         if (file_exists($destinationPath)) {
+         if (file_exists($oldFile)) {
             unlink($oldFile);
          }
          $rt->foto = $destinationPath;

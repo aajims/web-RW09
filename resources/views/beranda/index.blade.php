@@ -53,7 +53,7 @@
 					<!-- small box -->
 					<div class="small-box bg-yellow">
 						<div class="inner">
-						<h3>11</h3>
+						<h3>{{  $foto }}</h3>
 
 							<p>Data Foto Kegiatan</p>
 						</div>
@@ -65,6 +65,45 @@
 				</div>
 			</div>
 		</div>
+		<section class="content">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-aqua"><i class="ion ion-person"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Data RT</span>
+							<span class="info-box-number">{{ $rt }}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-green"><i class="ion ion-person-stalker"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Data Pengurus</span>
+							<span class="info-box-number">{{ $pengurus }}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-yellow"><i class="ion ion-images"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Data Slide</span>
+							<span class="info-box-number">{{ $slide }}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-red"><i class="ion ion-compose"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Data Kegiatan</span>
+							<span class="info-box-number">110</span>
+						</div>
+					</div>
+				</div>
+			</div>
 	
 
 @endsection

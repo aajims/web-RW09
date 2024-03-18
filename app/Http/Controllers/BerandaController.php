@@ -7,6 +7,9 @@ use App\Models\Penduduk;
 use App\Models\Keuangan;
 use App\Models\AgendaKegiatan;
 use App\Models\Foto;
+use App\Models\Rt;
+use App\Models\Slide;
+use App\Models\Pengurus;
 
 class BerandaController extends Controller
 {
@@ -16,7 +19,11 @@ class BerandaController extends Controller
         $penduduk = Penduduk::all()->count();
         $keuangan = Keuangan::all()->count();
         $agenda = AgendaKegiatan::all()->count();
-        return view('beranda.index',compact('title', 'subtitle', 'penduduk', 'keuangan', 'agenda'));
+        $foto = Foto::all()->count();
+        $rt = Rt::all()->count();
+        $pengurus = Pengurus::all()->count();
+        $slide = Slide::all()->count();
+        return view('beranda.index',compact('title', 'subtitle', 'penduduk', 'keuangan', 'agenda', 'foto', 'rt', 'pengurus', 'slide'));
     }
 
     public function list() {
