@@ -66,7 +66,7 @@ class SlideController extends Controller
          $destinationPath = 'assets/img/slide/' . $picName;
          $img = Image::make($request->file('image'));
          $img->resize(365, 165);
-         $img->save($destinationPath);
+         $img->save(public_path($destinationPath));
 
          $slide = new slide;
          $slide->title = $request->input('title');
@@ -97,10 +97,10 @@ class SlideController extends Controller
          if ($request->hasFile('image')) {
             $picName = $request->file('image')->getClientOriginalExtension();
             $picName = Carbon::now()->timestamp. '.' . $picName;
-            $destinationPath = 'assets/img/slide/' . $picName;
+            $destinationPath = storage_path().'assets/img/slide/' . $picName;
             $img = Image::make($request->file('image'));
             $img->resize(365, 165);
-            $img->save($destinationPath);
+            $img->save(public_path($destinationPath));
          
             $slide = Slide::find($id);
             $oldFile = $slide->image;
