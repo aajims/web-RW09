@@ -30,6 +30,29 @@ class AgendaKegiatanController extends Controller
         return $datatables->make(true);
     }
 
+    public function list()
+    {
+        $agenda = AgendaKegiatan::select([
+            'id', 'agenda_kategori', 'nama_agenda', 'waktu', 'lokasi']);
+        $response=[
+            'status'=>'success',
+            'message'=>'list Data Agenda',
+            'data' => $agenda,
+        ];
+        return response()->json($response, 200);
+    }
+
+    public function view($id)
+    {
+       $ag = AgendaKegiatan::where('id',$id)->first();
+        $response=[
+            'status'=>'success',
+            'message'=>'list Data Agenda',
+            'data' => $ag,
+        ];
+        return response()->json($response, 200);
+   }
+
     public function add()
     {
         $title = 'agenda';

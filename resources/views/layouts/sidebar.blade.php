@@ -72,7 +72,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-podcast"></i>
+              <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Data Pengurus
                 <i class="right fas fa-angle-left"></i>
@@ -95,7 +95,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-podcast"></i>
+              <i class="nav-icon fas fa-tasks"></i>
               <p>
                 Agenda Kegiatan
                 <i class="right fas fa-angle-left"></i>
@@ -112,7 +112,24 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-podcast"></i>
+              <i class="nav-icon fas fa-lock"></i>
+              <p>
+                Personil Keamanan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('keamanan') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Personil</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-camera"></i>
               <p>
                 Foto Kegiatan
                 <i class="right fas fa-angle-left"></i>
@@ -178,7 +195,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-podcast"></i>
+                  <i class="nav-icon fas fa-user-tie"></i>
                   <p>
                     Data Pengurus
                     <i class="right fas fa-angle-left"></i>
@@ -212,6 +229,23 @@
                     <a href="{{ url('agenda') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>List Agenda</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-lock"></i>
+                  <p>
+                    Personil Keamanan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('keamanan') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Personil</p>
                     </a>
                   </li>
                 </ul>
