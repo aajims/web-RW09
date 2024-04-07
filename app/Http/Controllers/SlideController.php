@@ -16,13 +16,12 @@ class SlideController extends Controller
     {
         $title = 'Data Slide';
         $subtitle = 'Data Slide';
-        $data = Slide::all();
-        return view('slide.index', compact('title', 'subtitle', 'data'))
+        return view('slide.index', compact('title', 'subtitle'))
         ->with('no', (request()->input('page', 1) - 1));
     }
 
     public function list() {
-        $data = Slide::all();
+        $data = Slide::where('status', '1')->latest()->get();
         $response=[
             'status'=>'success',
             'message'=>'list Data Slide',
@@ -33,7 +32,7 @@ class SlideController extends Controller
 
     public function yajra(Request $request){
         $kategori = Slide::select([
-            'id', 'title', 'image', 'detail', 'status']);
+            'id', 'title', 'image', 'detail', 'status'])->latest();
         $datatables = Datatables::of($kategori)
         ->addColumn('status_text', function($rows) {
             return $rows->status == 1 ? 'Aktif' : 'Tidak Aktif';
