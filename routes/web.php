@@ -48,6 +48,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::put('pengurus/{id}', 'App\Http\Controllers\PengurusController@update')->middleware(['checkRole:Super Admin,Admin']);
     Route::delete('pengurus/{id}', 'App\Http\Controllers\PengurusController@delete')->middleware(['checkRole:Super Admin,Admin']);
 
+     //Personil Keamanan
+     Route::get('keamanan', 'App\Http\Controllers\KeamananController@index')->middleware(['checkRole:Super Admin,Admin']);
+     Route::get('keamanan/yajra', 'App\Http\Controllers\KeamananController@yajra');
+     Route::get('keamanan/add', 'App\Http\Controllers\KeamananController@add')->middleware(['checkRole:Super Admin,Admin']);
+     Route::post('keamanan/store', 'App\Http\Controllers\KeamananController@store')->middleware(['checkRole:Super Admin,Admin']);
+     Route::get('keamanan/{id}', 'App\Http\Controllers\KeamananController@edit')->middleware(['checkRole:Super Admin,Admin']);
+     Route::put('keamanan/{id}', 'App\Http\Controllers\KeamananController@update')->middleware(['checkRole:Super Admin,Admin']);
+
     //Agenda Kegiatan
     Route::get('agenda', 'App\Http\Controllers\AgendaKegiatanController@index')->middleware(['checkRole:Super Admin,Admin']);
     Route::get('agenda/yajra', 'App\Http\Controllers\AgendaKegiatanController@yajra');
