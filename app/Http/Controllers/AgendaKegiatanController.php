@@ -13,14 +13,13 @@ class AgendaKegiatanController extends Controller
     {
         $title = 'Agenda';
         $subtitle = 'Kegiatan';
-        $agenda = AgendaKegiatan::all();
-        return view('agenda.index', compact('title', 'subtitle', 'agenda'))
+        return view('agenda.index', compact('title', 'subtitle'))
         ->with('no', (request()->input('page', 1) - 1));
     }
 
     public function yajra(Request $request){
         $agenda = AgendaKegiatan::select([
-            'id', 'agenda_kategori', 'nama_agenda', 'waktu', 'lokasi']);
+            'id', 'agenda_kategori', 'nama_agenda', 'waktu', 'lokasi'])->orderByDesc('id');
         $datatables = Datatables::of($agenda)
         ->addIndexColumn()
         ->addColumn('action',function($head){
@@ -32,8 +31,7 @@ class AgendaKegiatanController extends Controller
 
     public function list()
     {
-        $agenda = AgendaKegiatan::select([
-            'id', 'agenda_kategori', 'nama_agenda', 'waktu', 'lokasi']);
+        $agenda = AgendaKegiatan::orderByDesc('id')->get();
         $response=[
             'status'=>'success',
             'message'=>'list Data Agenda',

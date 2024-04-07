@@ -13,18 +13,17 @@ class JabatanController extends Controller
     {
         $title = 'jabatan';
         $subtitle = 'RW';
-        $jabatan = Jabatan::all();
-        return view('jabatan.index', compact('title', 'subtitle', 'jabatan'))
+        return view('jabatan.index', compact('title', 'subtitle'))
         ->with('no', (request()->input('page', 1) - 1));
     }
 
     public function yajra(Request $request){
         $jabatan = Jabatan::select([
-            'id', 'name']);
+            'id', 'name'])->latest();
         $datatables = Datatables::of($jabatan)
         ->addIndexColumn()
         ->addColumn('action',function($head){
-            return '<center><a href="jabatan/'.$head->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit Data</a>';
+            return '<center><a href="jabatan/'.$head->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i>&nbsp; Edit Data</a>';
         });
         return $datatables->make(true);
     }

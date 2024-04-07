@@ -44,7 +44,7 @@ class PendudukController extends Controller
 
     public function yajra(Request $request){
         $kategori = Penduduk::with('rts')->select([
-            'id', 'rt_id', 'nama_lengkap', 'jk', 'status_perkawinan', 'pendidikan_terakhir', 'status_keluarga']);
+            'id', 'rt_id', 'nama_lengkap', 'jk', 'status_perkawinan', 'pendidikan_terakhir', 'status_keluarga'])->latest();
         $datatables = Datatables::of($kategori)
         ->addIndexColumn()
         ->addColumn('action',function($rows){

@@ -16,13 +16,12 @@ class FotoController extends Controller
     {
         $title = 'Data Galery';
         $subtitle = 'Foto';
-        $foto = Foto::with('agenda')->get();
-        return view('foto.index', compact('title', 'subtitle', 'foto'))
+        return view('foto.index', compact('title', 'subtitle'))
         ->with('no', (request()->input('page', 1) - 1));
     }
 
     public function list() {
-        $foto = Foto::with('agenda')->paginate(15);
+        $foto = Foto::with('agenda')->orderByDesc('id')->paginate(15);
         $response=[
             'status'=>'success',
             'message'=>'Foto list',
@@ -45,7 +44,7 @@ class FotoController extends Controller
 
     public function yajra(Request $request){
         $foto = Foto::with('agenda')->select([
-            'id', 'agenda_id', 'caption', 'images']);
+            'id', 'agenda_id', 'caption', 'images'])->orderByDesc('id');
         $datatables = Datatables::of($foto)
         ->addIndexColumn()
         ->addColumn('action',function($head){
