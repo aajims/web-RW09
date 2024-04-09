@@ -30,6 +30,16 @@ class FotoController extends Controller
         return response()->json($response, 200);
     }
 
+    public function slide() {
+        $foto = Foto::with('agenda')->orderByDesc('id')->skip(0)->take(6)->get();
+        $response=[
+            'status'=>'success',
+            'message'=>'Foto list',
+            'data' => $foto,
+        ];
+        return response()->json($response, 200);
+    }
+
     public function view($id) {
         $foto = Foto::with('agenda')
         ->where('agenda_id', $id)
