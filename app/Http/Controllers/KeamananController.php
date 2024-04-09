@@ -77,7 +77,7 @@ class KeamananController extends Controller
             $uploadedImage = $request->foto->move(public_path('assets/img/pengurus/'), $picName);
             $destinationPath = 'assets/img/pengurus/' . $picName;
             $img = Image::make($uploadedImage);
-            $img->resize(165, 165);
+            $img->resize(265, 265);
             $img->save($uploadedImage);
 
             $keamanan = new Keamanan;
@@ -125,7 +125,7 @@ class KeamananController extends Controller
             $uploadedImage = $request->foto->move(public_path('assets/img/pengurus/'), $picName);
             $destinationPath = 'assets/img/pengurus/' . $picName;
             $img = Image::make($uploadedImage);
-            $img->resize(165, 165);
+            $img->resize(265, 265);
             $img->save($uploadedImage);
 
             $keamanan = Keamanan::find($id);
