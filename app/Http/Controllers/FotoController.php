@@ -74,7 +74,7 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(255, 255);
+         $img->resize(405, 405);
          $img->save($uploadedImage);
 
          $foto = new Foto;
@@ -109,7 +109,7 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(255, 255);
+         $img->resize(405, 405);
          $img->save($uploadedImage);
 
          $foto = Foto::find($id);

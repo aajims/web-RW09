@@ -65,7 +65,7 @@ class PengurusController extends Controller
             $uploadedImage = $request->foto->move(public_path('assets/img/pengurus/'), $picName);
             $destinationPath = 'assets/img/pengurus/' . $picName;
             $img = Image::make($uploadedImage);
-            $img->resize(165, 165);
+            $img->resize(265, 265);
             $img->save($uploadedImage);
 
             $pengurus = new Pengurus;
@@ -113,7 +113,7 @@ class PengurusController extends Controller
             $uploadedImage = $request->foto->move(public_path('assets/img/pengurus/'), $picName);
             $destinationPath = 'assets/img/pengurus/' . $picName;
             $img = Image::make($uploadedImage);
-            $img->resize(165, 165);
+            $img->resize(265, 265);
             $img->save($uploadedImage);
 
             $pengurus = Pengurus::find($id);
