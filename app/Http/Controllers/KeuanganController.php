@@ -21,11 +21,10 @@ class KeuanganController extends Controller
     }
 
     public function list() {
-        $foto = Keuangan::with('kategori_keuangan'->latest())->paginate(15);
+        $foto = Keuangan::with('kategori_keuangan')->latest()->get();
         $response=[
             'status'=>'success',
-            'message'=>'Keuangan list',
-            'data' => $foto,
+            'message'=>'Keuangan list'
         ];
         return response()->json($response, 200);
     }
