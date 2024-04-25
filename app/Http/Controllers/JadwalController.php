@@ -81,7 +81,7 @@ class JadwalController extends Controller
     public function add() {
         $title = 'Jadwal Keamanan';
         $subtitle = 'Keamanan RW';
-        $keamanan = Keamanan::where('jabatan_id', '5')->get();
+        $keamanan = Keamanan::where('jabatan_id', '23')->get();
         return view('jadwal.add', compact('title', 'subtitle', 'keamanan'));
     }
 
@@ -111,7 +111,7 @@ class JadwalController extends Controller
         $title = 'Jadwal Keamanan';
         $subtitle = 'Keamanan RW';
         $jadwal = Jadwal::where('id', $id)->with('petugas')->first();
-        $keamanan = Keamanan::where('jabatan_id', '5')->get();
+        $keamanan = Keamanan::where('jabatan_id', '23')->get();
         return view('jadwal.edit', compact('title', 'subtitle', 'jadwal', 'keamanan'));
     }
 
