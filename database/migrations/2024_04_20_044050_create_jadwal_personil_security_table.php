@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('jadwal_personil_security', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jadwal_id');
-            $table->string('keamanan_id',11);
+            $table->unsignedBigInteger('keamanan_id',11);
             $table->foreign('jadwal_id')->references('id')->on('jadwal')->onDelete('cascade');
             $table->foreign('keamanan_id')->references('id')->on('keamanan')->onDelete('cascade');
             $table->primary(['jadwal_id', 'keamanan_id']);
