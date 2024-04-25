@@ -3,24 +3,22 @@
 @section('content')
 
 		<div class="tambah">
-			<a href="keamanan/add" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add Personil Keamanan</a>
+			<a href="cabor/add" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add Data Cabang Olahraga</a>
 		</div>
 		<div class="card-body">
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Name</th>
-						<th>Jabatan</th>
-						<th>Periode</th>
-						<th>No Handphone</th>
-						<th>Foto</th>
+						<th>Logo </th>
+						<th>Nama </th>
+						<th>Slug </th>
+						<th>Lokasi </th>
 						<th>Action</th>
 					</tr>
 				</thead>
 			</table>
 		</div>
-
 
 	@endsection
 
@@ -37,19 +35,18 @@
 				serverSide: true,
 				responsive: true,
 				bAutoWidth:false,
-				ajax: "{{ url('keamanan/yajra') }}",
+				ajax: "{{ url('cabor/yajra') }}",
 				columns: [
 	            // or just disable search since it's not really searchable. just add searchable:false
 	            {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
-	            {data: 'name', name: 'name'},
-	            {data: 'jabatans.name', name: 'jabatan'},
-	            {data: 'periode', name: 'periode'},
-	            {data: 'nohp', name: 'nohp'},
-	            {data: 'foto',
-				"render": function (data) {
-					return '<img src="public/' + data + '" width="30" height="30"/>';
+	            {data: 'logo', 
+                "render": function (data) {
+					return '<img src="public/assets/img/cabor/' + data + '" width="30" height="30"/>';
 				},
-				 name: 'foto'},
+                },
+	            {data: 'name', name: 'name'},
+	            {data: 'slug', name: 'slug'},
+	            {data: 'lokasi', name: 'lokasi'},
 	            {data: 'action', name: 'action'}
 	            ]
 	        });

@@ -129,6 +129,23 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-calendar-times"></i>
+              <p>
+                Jadwal Personil Keamanan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('jadwal') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Personil</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-camera"></i>
               <p>
                 Foto Kegiatan
@@ -157,6 +174,57 @@
                 <a href="{{ url('penduduk') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-file-archive"></i>
+              <p>
+                Data Dokumen
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('dokumen') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Dokumen</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-futbol"></i>
+              <p>
+                Data Cabang Olahraga
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('cabor') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Cabang Olahraga</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-trophy"></i>
+              <p>
+                Data Pertandingan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('pertandingan') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Pertandingan</p>
                 </a>
               </li>
             </ul>
@@ -252,6 +320,23 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-calendar-times"></i>
+                  <p>
+                    Jadwal Personil Keamanan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('jadwal') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Personil</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-camera"></i>
                   <p>
                     Foto Kegiatan
@@ -280,6 +365,57 @@
                     <a href="{{ url('penduduk') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>List Penduduk</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-file-archive"></i>
+                  <p>
+                    Data Dokumen
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('dokumen') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Dokumen</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-futbol"></i>
+                  <p>
+                    Data Cabang Olahraga
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('cabor') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Cabang Olahraga</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-trophy"></i>
+                  <p>
+                    Data Pertandingan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('pertandingan') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>List Pertandingan</p>
                     </a>
                   </li>
                 </ul>

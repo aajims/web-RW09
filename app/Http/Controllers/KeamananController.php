@@ -37,7 +37,8 @@ class KeamananController extends Controller
         $datatables = Datatables::of($keamanan)
         ->addIndexColumn()
         ->addColumn('action',function($head){
-            return '<center><a href="keamanan/'.$head->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>';
+            return '<center><a href="keamanan/'.$head->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>
+            <a href="jadwal/'.$head->id.'" class="btn btn-sm btn-primary"> Jadwal</a></center>';
         });
         return $datatables->make(true);
     }
@@ -107,10 +108,8 @@ class KeamananController extends Controller
         $subtitle = 'Edit keamanan';
         $jab = Jabatan::latest()->get();
         $keamanan = Keamanan::where('id',$id)->first();
-
         return view('keamanan.edit', compact('title', 'subtitle', 'keamanan', 'jab'));
     }
-
     public function update(Request $request,$id){
     	$this->validate($request,[
             'name'=>'required',

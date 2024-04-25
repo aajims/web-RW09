@@ -20,6 +20,13 @@ Route::get('penduduk/{id}', 'App\Http\Controllers\PendudukController@view')->nam
 Route::get('security/{id}', 'App\Http\Controllers\KeamananController@view')->name('security.view');
 Route::get('foto-slide', 'App\Http\Controllers\FotoController@slide')->name('foto.slide');
 
+Route::get('volley', 'App\Http\Controllers\PertandinganController@volley')->name('cabor.volley');
+Route::get('badminton', 'App\Http\Controllers\PertandinganController@badminton')->name('cabor.badminton');
+Route::get('tenis', 'App\Http\Controllers\PertandinganController@tenis')->name('cabor.tenis');
+Route::get('futsal', 'App\Http\Controllers\PertandinganController@futsal')->name('cabor.futsal');
+
+Route::get('jadwal-petugas', 'App\Http\Controllers\JadwalController@jadwalPetugas')->name('jadwal.petugas');
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

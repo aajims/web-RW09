@@ -14,5 +14,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('adminLTE3/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}" media="all" />
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">

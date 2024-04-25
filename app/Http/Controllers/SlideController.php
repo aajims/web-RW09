@@ -100,6 +100,7 @@ class SlideController extends Controller
             $uploadedImage = $request->image->move(public_path('assets/img/slide/'), $picName);
             $destinationPath = 'assets/img/slide/'.$picName;
             $img = Image::make($uploadedImage);
+            
             $img->resize(720, 320);
             $img->save($uploadedImage);
          
