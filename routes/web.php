@@ -55,6 +55,7 @@ Route::group(['middleware'=>'auth'],function(){
      Route::post('keamanan/store', 'App\Http\Controllers\KeamananController@store')->middleware(['checkRole:Super Admin,Admin']);
      Route::get('keamanan/{id}', 'App\Http\Controllers\KeamananController@edit')->middleware(['checkRole:Super Admin,Admin']);
      Route::put('keamanan/{id}', 'App\Http\Controllers\KeamananController@update')->middleware(['checkRole:Super Admin,Admin']);
+     
 
     //Agenda Kegiatan
     Route::get('agenda', 'App\Http\Controllers\AgendaKegiatanController@index')->middleware(['checkRole:Super Admin,Admin']);
@@ -118,6 +119,38 @@ Route::group(['middleware'=>'auth'],function(){
       Route::get('penduduk/{id}', 'App\Http\Controllers\PendudukController@edit')->middleware(['checkRole:Super Admin,Admin,Staff']);
       Route::put('penduduk/{id}', 'App\Http\Controllers\PendudukController@update')->middleware(['checkRole:Super Admin,Admin,Staff']);
       Route::delete('penduduk/{id}', 'App\Http\Controllers\PendudukController@delete')->middleware(['checkRole:Super Admin,Admin,Staff']);
+
+    //Data Dokumen
+    Route::get('dokumen', 'App\Http\Controllers\DokumenController@index')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('dokumen/yajra', 'App\Http\Controllers\DokumenController@yajra')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('dokumen/add', 'App\Http\Controllers\DokumenController@add')->middleware(['checkRole:Super Admin,Admin']);
+    Route::post('dokumen/store', 'App\Http\Controllers\DokumenController@store')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('dokumen/{id}', 'App\Http\Controllers\DokumenController@edit')->middleware(['checkRole:Super Admin,Admin']);
+    Route::put('dokumen/{id}', 'App\Http\Controllers\DokumenController@update')->middleware(['checkRole:Super Admin,Admin']);
+
+    //Data Pertandingan
+    Route::get('pertandingan', 'App\Http\Controllers\PertandinganController@index')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('pertandingan/yajra', 'App\Http\Controllers\PertandinganController@yajra')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('pertandingan/add', 'App\Http\Controllers\PertandinganController@add')->middleware(['checkRole:Super Admin,Admin']);
+    Route::post('pertandingan/store', 'App\Http\Controllers\PertandinganController@store')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('pertandingan/{id}', 'App\Http\Controllers\PertandinganController@edit')->middleware(['checkRole:Super Admin,Admin']);
+    Route::put('pertandingan/{id}', 'App\Http\Controllers\PertandinganController@update')->middleware(['checkRole:Super Admin,Admin']);
+
+    //Data Cabang Olahraga
+    Route::get('cabor', 'App\Http\Controllers\CaborController@index')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('cabor/yajra', 'App\Http\Controllers\CaborController@yajra')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('cabor/add', 'App\Http\Controllers\CaborController@add')->middleware(['checkRole:Super Admin,Admin']);
+    Route::post('cabor/store', 'App\Http\Controllers\CaborController@store')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('cabor/{id}', 'App\Http\Controllers\CaborController@edit')->middleware(['checkRole:Super Admin,Admin']);
+    Route::put('cabor/{id}', 'App\Http\Controllers\CaborController@update')->middleware(['checkRole:Super Admin,Admin']);
+
+    //Data Jadwal Security
+    Route::get('jadwal', 'App\Http\Controllers\JadwalController@index')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('jadwal/yajra', 'App\Http\Controllers\JadwalController@yajra')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('jadwal/add', 'App\Http\Controllers\JadwalController@add')->middleware(['checkRole:Super Admin,Admin']);
+    Route::post('jadwal/store', 'App\Http\Controllers\JadwalController@store')->middleware(['checkRole:Super Admin,Admin']);
+    Route::get('jadwal/{id}', 'App\Http\Controllers\JadwalController@edit')->middleware(['checkRole:Super Admin,Admin']);
+    Route::put('jadwal/{id}', 'App\Http\Controllers\JadwalController@update')->middleware(['checkRole:Super Admin,Admin']);
 
 });
 
