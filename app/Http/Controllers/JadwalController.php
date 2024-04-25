@@ -130,7 +130,6 @@ class JadwalController extends Controller
          $jadwal->save();
          $personil = implode(',', $request->keamanan_id);
          $jadwalPersonil = JadwalPersonil::find($id);
-         $jadwalPersonil->jadwal_id = $jadwal->id;
          $jadwalPersonil->keamanan_id = $personil;
          $jadwalPersonil->save();
          Alert::success('Success', 'Data Berhasil di Simpan');
