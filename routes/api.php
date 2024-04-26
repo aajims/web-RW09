@@ -21,6 +21,7 @@ Route::get('security/{id}', 'App\Http\Controllers\KeamananController@view')->nam
 Route::get('foto-slide', 'App\Http\Controllers\FotoController@slide')->name('foto.slide');
 
 Route::get('cabor', 'App\Http\Controllers\CaborController@list')->name('cabor');
+Route::get('cabor/{id}', 'App\Http\Controllers\CaborController@detail')->name('cabor.detail');
 Route::get('volley', 'App\Http\Controllers\PertandinganController@volley')->name('cabor.volley');
 Route::get('badminton', 'App\Http\Controllers\PertandinganController@badminton')->name('cabor.badminton');
 Route::get('tenis', 'App\Http\Controllers\PertandinganController@tenis')->name('cabor.tenis');
