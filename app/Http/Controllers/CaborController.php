@@ -29,6 +29,16 @@ class CaborController extends Controller
         return response()->json($response, 200);
     }
 
+    public function detail($id) {
+        $cabor = Cabor::where('id',$id)->first();
+        $response=[
+            'status'=>'success',
+            'message'=>'Cabang Olahraga Detail',
+            'data' => $cabor,
+        ];
+        return response()->json($response, 200);
+    }
+
     public function yajra(){
         $users = Cabor::select([
             'id', 'name', 'slug', 'lokasi']);
