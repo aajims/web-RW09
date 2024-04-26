@@ -20,6 +20,7 @@ Route::get('penduduk/{id}', 'App\Http\Controllers\PendudukController@view')->nam
 Route::get('security/{id}', 'App\Http\Controllers\KeamananController@view')->name('security.view');
 Route::get('foto-slide', 'App\Http\Controllers\FotoController@slide')->name('foto.slide');
 
+Route::get('cabor', 'App\Http\Controllers\CaborController@list')->name('cabor');
 Route::get('volley', 'App\Http\Controllers\PertandinganController@volley')->name('cabor.volley');
 Route::get('badminton', 'App\Http\Controllers\PertandinganController@badminton')->name('cabor.badminton');
 Route::get('tenis', 'App\Http\Controllers\PertandinganController@tenis')->name('cabor.tenis');
