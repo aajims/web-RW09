@@ -160,9 +160,9 @@ class JadwalController extends Controller
 
         if ($jadwal) {
             $jadwalData = [
-                'Hari' => $jadwal->hari,
-                'Jam Mulai' => $jadwal->jam_mulai,
-                'Jam Selesai' => $jadwal->jam_selesai,
+                'hari' => $jadwal->hari,
+                'jam_mulai' => $jadwal->jam_mulai,
+                'jam_selesai' => $jadwal->jam_selesai,
             ];
 
             $personils = explode(',', $jadwal->keamanan_id);
@@ -175,7 +175,7 @@ class JadwalController extends Controller
                         'id' => $personil->id,
                         'name' => $personil->name,
                         'foto' => $personil->foto,
-                        'No Hp' => $personil->nohp,
+                        'no_hp' => $personil->nohp,
                     ];
                     $personilsData[] = $personilData;
                 }

@@ -41,7 +41,8 @@
 	            {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
 	            {data: 'logo', 
                 "render": function (data) {
-					return '<img src="public/assets/img/cabor/' + data + '" width="30" height="30"/>';
+					return '<img src="/assets/img/cabor/' + data + '" width="30" height="30"/>';
+
 				},
                 },
 	            {data: 'name', name: 'name'},
