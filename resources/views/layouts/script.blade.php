@@ -9,6 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script src="{{ asset('adminLTE3/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{ asset('adminLTE3/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLTE3/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
