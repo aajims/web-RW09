@@ -32,13 +32,14 @@
 @endsection
 
 @section('scripts')
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script src="{{ asset('adminLTE3/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script>
-    ClassicEditor
-    .create( document.querySelector( '#content' ) )
-    .catch( error => {
-    console.error( error );
-    });
+	$(function () {
+    // Summernote
+    $('#content').summernote()
+
+  });
+    
 </script>
 
 @endsection
