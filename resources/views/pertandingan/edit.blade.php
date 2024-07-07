@@ -45,6 +45,9 @@
 									<option value="Team RT 29"> Team RT 29</option>
 									<option value="Team RT 41"> Team RT 41</option>
 									<option value="Team RT 48"> Team RT 48</option>
+									<option value="Team Win"> Team Win</option>
+									<option value="Win Pool A"> Win Pool A</option>
+									<option value="Win Pool B"> Win Pool B</option>
 								</select>
 								<span class="text-danger">{{ $errors->first('team_a') }}</span>
 							</div>
@@ -64,6 +67,8 @@
 									<option value="Team RT 29"> Team RT 29</option>
 									<option value="Team RT 41"> Team RT 41</option>
 									<option value="Team RT 48"> Team RT 48</option>
+									<option value="Win Pool A"> Win Pool A</option>
+									<option value="Win Pool B"> Win Pool B</option>
 								</select>
 								<span class="text-danger">{{ $errors->first('team_b') }}</span>
 							</div>
