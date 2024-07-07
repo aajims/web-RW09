@@ -59,7 +59,8 @@ class PertandinganController extends Controller
 
     public function yajra(){
         $users = Pertandingan::with('cabors')->select([
-            'id', 'cabor_id', 'waktu', 'team_a', 'team_b', 'score']);
+            'id', 'cabor_id', 'waktu', 'team_a', 'team_b', 'score'])
+            ->orderBy('id', 'DESC');
         $datatables = Datatables::of($users)
         ->addIndexColumn()
         ->addColumn('action',function($head){
