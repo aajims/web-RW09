@@ -12,6 +12,7 @@ class Dokumen extends Model
     public $primaryKey = 'id';
     protected $fillable = [
         'title',
+        'slug',
          'content'
     ];
 
