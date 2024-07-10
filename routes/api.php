@@ -29,6 +29,8 @@ Route::get('futsal', 'App\Http\Controllers\PertandinganController@futsal')->name
 
 Route::get('jadwal-petugas', 'App\Http\Controllers\JadwalController@jadwalPetugas')->name('jadwal.petugas');
 
+Route::get('dokumen', 'App\Http\Controllers\DokumenController@list')->name('dokumen');
+Route::get('dokumen/{slug}', 'App\Http\Controllers\DokumenController@detail')->name('dokumen.detail');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DataTables;
 use App\Models\Dokumen;
 use Alert;
+use Illuminate\support\Str;
 use Illuminate\Http\Request;
 
 class DokumenController extends Controller
@@ -18,7 +19,8 @@ class DokumenController extends Controller
     }
 
     public function list() {
-        $dokumen = Dokumen::all();
+        $dokumen = Dokumen::select([
+            'id', 'title', 'slug', 'content'])->get();
         $response=[
             'status'=>'success',
             'message'=>'dokumen list',
@@ -27,9 +29,18 @@ class DokumenController extends Controller
         return response()->json($response, 200);
     }
 
+    public function detail($slug) {
+        $dokumen = Dokumen::where('slug', $slug)->first();
+        $response=[
+            'status'=>'success',
+            'message'=>'dokumen Detail',
+            'data' => $dokumen,
+        ];
+        return response()->json($response, 200);
+    }
     public function yajra(Request $request){
         $users = Dokumen::select([
-            'id', 'title', 'content']);
+            'id', 'title', 'slug', 'content']);
         $datatables = Datatables::of($users)
         ->addIndexColumn()
         ->addColumn('action',function($head){
@@ -52,8 +63,9 @@ class DokumenController extends Controller
     		'content'=>'required'
          ]);
          Dokumen::insert([
-            'title'=>$request->title,
-            'content'=>$request->content
+            'title'=> $request->title,
+            'slug'=> Str::slug($request->title),
+            'content'=> $request->content
          ]);
          Alert::success('Success', 'Data Berhasil di Simpan');
          return redirect('dokumen');
@@ -64,7 +76,6 @@ class DokumenController extends Controller
         $title = 'Dokumen';
         $subtitle = 'Edit Dokumen';
         $dokumen = Dokumen::where('id',$id)->first();
-
         return view('dokumen.edit', compact('title', 'subtitle', 'dokumen'));
     }
 
@@ -74,8 +85,9 @@ class DokumenController extends Controller
             'content'=>'required'
          ]);
     	Dokumen::where('id',$id)->update([
-    		'title'=>$request->title,
-            'content'=>$request->content
+    		'title'=> $request->title,
+    		'slug'=> Str::slug($request->title),
+            'content'=> $request->content
         ]);
         Alert::success('Success', 'Data Berhasil di Update');
          return redirect('dokumen');
