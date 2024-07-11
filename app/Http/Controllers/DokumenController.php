@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DataTables;
 use App\Models\Dokumen;
 use Alert;
+use Carbon\Carbon;
 use Illuminate\support\Str;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,7 @@ class DokumenController extends Controller
     }
     public function yajra(Request $request){
         $users = Dokumen::select([
-            'id', 'title', 'slug', 'content']);
+            'id', 'title', 'slug', 'file']);
         $datatables = Datatables::of($users)
         ->addIndexColumn()
         ->addColumn('action',function($head){
@@ -60,12 +61,19 @@ class DokumenController extends Controller
     {
         $this->validate($request, [
     		'title'=>'required',
-    		'content'=>'required'
+    		'document'=>'required'
          ]);
+         $file = $request->file('document');
+         $fileName = Carbon::now()->timestamp. '.' . $file->getClientOriginalExtension();
+         $file->move(public_path('assets/doc'), $fileName);
+         $destinationPath = 'assets/doc/' . $fileName;
+        
          Dokumen::insert([
             'title'=> $request->title,
             'slug'=> Str::slug($request->title),
-            'content'=> $request->content
+            'content'=> $request->content,
+            'file'=> $destinationPath,
+
          ]);
          Alert::success('Success', 'Data Berhasil di Simpan');
          return redirect('dokumen');
@@ -82,12 +90,18 @@ class DokumenController extends Controller
     public function update(Request $request,$id){
     	$this->validate($request,[
             'title'=>'required',
-            'content'=>'required'
+            'document'=>'required'
          ]);
+         $file = $request->file('document');
+         $fileName = Carbon::now()->timestamp. '.' . $file->getClientOriginalExtension();
+         $file->move(public_path('assets/doc'), $fileName);
+         $destinationPath = 'assets/doc/' . $fileName;
+
     	Dokumen::where('id',$id)->update([
     		'title'=> $request->title,
     		'slug'=> Str::slug($request->title),
-            'content'=> $request->content
+            'content'=> $request->content,
+            'file'=> $destinationPath,
         ]);
         Alert::success('Success', 'Data Berhasil di Update');
          return redirect('dokumen');
