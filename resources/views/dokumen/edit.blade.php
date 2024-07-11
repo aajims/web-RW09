@@ -13,6 +13,11 @@
 						<input type="text" name="title" placeholder="Input Title" value="{{ $dokumen->title }}" class="form-control">
 					</div>
 					<div class="form-group">
+						Fie PDF Lama : <b>{{ $dokumen->file }}</b> <br>
+						<label for="">Upload PDF</label>
+						<input type="file" name="document" placeholder="Input Dokumen" class="form-control">
+					</div>
+					<div class="form-group">
 						<label for="">Konten Isi</label>
                         <textarea name="content" class="form-control" id="content" placeholder="Input Konten" cols="30" rows="10">{{ $dokumen->content }}</textarea>
 					</div>

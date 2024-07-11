@@ -12,7 +12,7 @@
 						<th>#</th>
 						<th>Title </th>
 						<th>Slug </th>
-						<th>Konten </th>
+						<th>Path File </th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -40,16 +40,7 @@
 	            {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
 	            {data: 'title', name: 'title'},
 	            {data: 'slug', name: 'slug'},
-	            {data: 'content', 
-                "render": function(data, type, row) {
-                  // Limit karakter data menjadi 50
-                  if (type === 'display') {
-                      return data.length > 100 ?
-                             data.substr(0, 100) + '...' :
-                             data;
-                  }
-                  return data;
-              }},
+	            {data: 'file', name: 'file' },
 	            {data: 'action', name: 'action'}
 	            ]
 	        });
