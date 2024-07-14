@@ -8,6 +8,16 @@
 				{{ csrf_field() }}
 				<div class="box-body">
 					<div class="form-group">
+						<label>Kategori Keuangan</label>
+						<select class="form-control" name="kategori_id">
+							<option value=""> -- Pilih Kategori --</option>
+							@foreach ($kategori as $item)
+							<option value="{{ $item->id }}"> {{ $item->nama_kategori }}</option>
+							@endforeach
+							</select>
+							<span class="text-danger">{{ $errors->first('kategori_id') }}</span>
+					</div>
+					<div class="form-group">
 						<label>Tanggal</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -17,16 +27,6 @@
 							</div>
 							<input type="text" name="tanggal" class="form-control" id="tanggal" value="<?php echo date("Y-m-d");?>">
 						</div>
-					</div>
-					<div class="form-group">
-						<label>Kategori Keuangan</label>
-						<select class="form-control" name="kategori_id">
-							<option value=""> -- Pilih Kategori --</option>
-							@foreach ($kategori as $item)
-							<option value="{{ $item->id }}"> {{ $item->nama_kategori }}</option>
-							@endforeach
-							</select>
-							<span class="text-danger">{{ $errors->first('kategori_id') }}</span>
 					</div>
 					<div class="form-group">
 						<label>Transaksi</label>
