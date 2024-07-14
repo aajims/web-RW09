@@ -13,6 +13,7 @@
 					<th>Kategori</th>
 					<th>Pemasukan</th>
 					<th>Pengeluaran</th>
+					<th>Keterangan</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -41,8 +42,9 @@
 	            {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
 	            {data: 'tanggal', name: 'tanggal'},
 	            {data: 'kategori_keuangan.nama_kategori', name: 'kategori_id'},
-	            {data: 'pemasukan', name: 'pemasukan', render: $.fn.dataTable.render.number( ',', '.', 3, 'Rp')},
-	            {data: 'pengeluaran', name: 'pengeluaran', render: $.fn.dataTable.render.number( ',', '.', 3, 'Rp')},
+	            {data: 'pemasukan', name: 'pemasukan', render: $.fn.dataTable.render.number( '.', '.', 0, 'Rp ')},
+	            {data: 'pengeluaran', name: 'pengeluaran', render: $.fn.dataTable.render.number( '.', '.', 0, 'Rp ')},
+	            {data: 'keterangan', name: 'keterangan'},
 	            {data: 'action', name: 'action'}
 	            ]
 	        });
