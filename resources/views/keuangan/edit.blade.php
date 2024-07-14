@@ -8,6 +8,16 @@
 				{{ method_field('PUT') }}
 				<div class="box-body">
 					<div class="form-group">
+						<label>Kategori Keuangan</label>
+						<select class="form-control" name="kategori_id">
+							<option value="{{ $keu->kategori_id }}"> {{ $keu->kategori_keuangan->nama_kategori }}</option>
+							@foreach ($category as $item)
+							<option value="{{ $item->id }}"> {{ $item->nama_kategori }}</option>
+							@endforeach
+							</select>
+							<span class="text-danger">{{ $errors->first('kategori_id') }}</span>
+					</div>
+					<div class="form-group">
 						<label>Tanggal</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -17,16 +27,6 @@
 							</div>
 						<input type="text" name="tanggal" class="form-control" value="{{ $keu->tanggal }}" id="tanggal">
 						</div>
-					</div>
-					<div class="form-group">
-						<label>Kategori Keuangan</label>
-						<select class="form-control" name="kategori_id">
-							<option value="{{ $keu->kategori_id }}"> {{ $keu->kategori_keuangan }}</option>
-							@foreach ($category as $item)
-							<option value="{{ $item->id }}"> {{ $item->nama_kategori }}</option>
-							@endforeach
-							</select>
-							<span class="text-danger">{{ $errors->first('kategori_id') }}</span>
 					</div>
 					<div class="form-group">
 						<label>Transaksi</label>
@@ -50,7 +50,6 @@
 						<textarea class="form-control" cols="50" name="ket" placeholder="Input Text Max 150 Character"
 						rows="3" data-validation="required"
 						>{{ $keu->keterangan }}</textarea>
-						{{ $keu->kategori_keuangan->nama_kategori }}//
 					</div>
 				</div>
 				<?php
