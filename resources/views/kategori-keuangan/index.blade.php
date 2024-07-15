@@ -2,7 +2,7 @@
 
 @section('content')
 		<div class="tambah">
-			<a href="categori-keuangan/add" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add Kategori</a>
+			<a href="kategori-keuangan/add" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add Kategori</a>
 		</div>
 		<div class="card-body">
 			<table class="table table-bordered table-striped">

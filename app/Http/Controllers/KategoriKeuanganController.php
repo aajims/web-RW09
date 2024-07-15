@@ -20,7 +20,7 @@ class KategoriKeuanganController extends Controller
 
     public function yajra(Request $request){
         $kategori = KategoriKeuangan::select([
-            'id', 'nama_kategori']);
+            'id', 'nama_kategori'])->orderBy('id', 'DESC')->get();
         $datatables = Datatables::of($kategori)
         ->addIndexColumn()
         ->addColumn('action',function($head){
