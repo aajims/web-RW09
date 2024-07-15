@@ -27,7 +27,7 @@
 						<div class="col">
 							<div class="form-group">
 								<label for="">Foto Kegiatan</label>
-								<input type="file" name="images" class="form-control" placeholder="Input">
+								<input type="file" name="images" class="filepond" accept="image/png, image/jpeg, image/gif" />
 								<span>Upload Foto Max 2 Mb</span>
 							</div>
 						</div>
@@ -48,3 +48,9 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.filepond').filepond();
+	})
+</script>
+@endsection
