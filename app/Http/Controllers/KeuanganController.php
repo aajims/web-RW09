@@ -31,7 +31,7 @@ class KeuanganController extends Controller
     }
 
     public function yajra(Request $request){
-        $kategori = Keuangan::with('kategori_keuangan')->latest()
+        $kategori = Keuangan::with('kategori_keuangan')->orderBy('id', 'DESC')
         ->select([
             'id', 'tanggal', 'kategori_id', 'pemasukan', 'pengeluaran', 'keterangan']);
         $datatables = Datatables::of($kategori)
