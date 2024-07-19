@@ -89,8 +89,7 @@ class DokumenController extends Controller
 
     public function update(Request $request,$id){
     	$this->validate($request,[
-            'title'=>'required',
-            'document'=>'required'
+            'title'=>'required'
          ]);
          $file = $request->file('document');
          $fileName = Carbon::now()->timestamp. '.' . $file->getClientOriginalExtension();
