@@ -7,7 +7,7 @@ use Alert;
 use DataTables;
 use App\Models\Penduduk;
 use App\Models\Rt;
-use App\Models\KategoriKeuangan;
+use Auth;
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
@@ -43,13 +43,14 @@ class PendudukController extends Controller
     }
 
     public function yajra(Request $request){
-        $kategori = Penduduk::with('rts')->select([
+        $user = Auth::user();
+        $kategori = Penduduk::where('role', $user->role)->with('rts')->select([
             'id', 'rt_id', 'nama_lengkap', 'jk', 'status_perkawinan', 'pendidikan_terakhir', 'status_keluarga'])->latest();
         $datatables = Datatables::of($kategori)
         ->addIndexColumn()
         ->addColumn('action',function($rows){
             return '<center>
-            <a href="penduduk/detail'.$rows->id.'" class="btn btn-sm btn-default"><i class="fas fa-pencil-alt"></i> Detail</a>
+            <a href="penduduk/detail/'.$rows->id.'" class="btn btn-sm btn-default"><i class="fas fa-pencil-alt"></i> Detail</a>
             <a href="penduduk/'.$rows->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>';
         });
         return $datatables->make(true);
@@ -66,7 +67,6 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-    		'rt'=>'required',
     		'nama_lengkap'=>'required',
     		'alamat'=>'required',
     		'jk'=>'required',
@@ -80,8 +80,29 @@ class PendudukController extends Controller
     		'status_rumah_tinggal'=>'required',
     		'status_ekonomi'=>'required'
          ]);
+         $user = Auth::user();
          $penduduk = new Penduduk;
-         $penduduk->rt_id = $request->input('rt');
+         if ($user->role == 'Staff23') {
+            $penduduk->rt_id = 1;
+         } elseif ($user->role == 'Staff24') {
+            $penduduk->rt_id = 2;
+         } elseif ($user->role == 'Staff25') {
+            $penduduk->rt_id = 3;
+         } elseif ($user->role == 'Staff26') {
+            $penduduk->rt_id = 4;
+         } elseif ($user->role == 'Staff27') {
+            $penduduk->rt_id = 5;
+         } elseif ($user->role == 'Staff28') {
+            $penduduk->rt_id = 6;
+         } elseif ($user->role == 'Staff29') {
+            $penduduk->rt_id = 7;
+         } elseif ($user->role == 'Staff41') {
+            $penduduk->rt_id = 8;
+         } elseif ($user->role == 'Staff48') {
+            $penduduk->rt_id = 9;
+         } else {
+            $penduduk->rt_id = 0;
+         }
          $penduduk->nama_lengkap = $request->input('nama_lengkap');
          $penduduk->alamat = $request->input('alamat');
          $penduduk->jk = $request->input('jk');
@@ -94,6 +115,7 @@ class PendudukController extends Controller
          $penduduk->status_keluarga = $request->input('status_keluarga');
          $penduduk->status_rumah_tinggal = $request->input('status_rumah_tinggal');
          $penduduk->status_ekonomi = $request->input('status_ekonomi');
+         $penduduk->role = $user->role;
          $penduduk->save();
          if (response()->json('code' == 200)) {
             Alert::toast('Data Berhasil di Simpan', 'success');
@@ -107,15 +129,22 @@ class PendudukController extends Controller
         $subtitle = 'Edit Penduduk';
         $rt = Rt::all();
         $penduduk = Penduduk::where('id',$id)
-        // ->with('rts')
         ->first();
-        // dd($penduduk);
         return view('penduduk.edit', compact('title', 'subtitle', 'penduduk', 'rt'));
     }
 
+    public function detail($id)
+     {
+        $title = 'Penduduk';
+        $subtitle = 'View Penduduk';
+        $penduduk = Penduduk::where('id',$id)
+        ->first();
+        return view('penduduk.view', compact('title', 'subtitle', 'penduduk'));
+    }
+
+
     public function update(Request $request, $id){
     	$this->validate($request,[
-    		'rt'=>'required',
     		'nama_lengkap'=>'required',
     		'alamat'=>'required',
     		'jk'=>'required',
@@ -129,8 +158,29 @@ class PendudukController extends Controller
     		'status_rumah_tinggal'=>'required',
     		'status_ekonomi'=>'required'
          ]);
+         $user = Auth::user();
          $penduduk = Penduduk::find($id);
-         $penduduk->rt_id = $request->input('rt');
+         if ($user->role == 'Staff23') {
+            $penduduk->rt_id = 1;
+         } elseif ($user->role == 'Staff24') {
+            $penduduk->rt_id = 2;
+         } elseif ($user->role == 'Staff25') {
+            $penduduk->rt_id = 3;
+         } elseif ($user->role == 'Staff26') {
+            $penduduk->rt_id = 4;
+         } elseif ($user->role == 'Staff27') {
+            $penduduk->rt_id = 5;
+         } elseif ($user->role == 'Staff28') {
+            $penduduk->rt_id = 6;
+         } elseif ($user->role == 'Staff29') {
+            $penduduk->rt_id = 7;
+         } elseif ($user->role == 'Staff41') {
+            $penduduk->rt_id = 8;
+         } elseif ($user->role == 'Staff48') {
+            $penduduk->rt_id = 9;
+         } else {
+            $penduduk->rt_id = 0;
+         }
          $penduduk->nama_lengkap = $request->input('nama_lengkap');
          $penduduk->alamat = $request->input('alamat');
          $penduduk->jk = $request->input('jk');
@@ -143,6 +193,7 @@ class PendudukController extends Controller
          $penduduk->status_keluarga = $request->input('status_keluarga');
          $penduduk->status_rumah_tinggal = $request->input('status_rumah_tinggal');
          $penduduk->status_ekonomi = $request->input('status_ekonomi');
+         $penduduk->role = $user->role;
          $penduduk->save();
          if (response()->json('code' == 200)) {
             Alert::toast('Data Berhasil di Update', 'success');

@@ -469,13 +469,12 @@
             </ul>
           </li>
           
-
-          @elseif(Auth::user()->role == 'staff')
+          @elseif(Auth::user()->role == 'Staff23')
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-circle"></i>
               <p>
-                Data Penduduk
+                Data Penduduk RT 23
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -494,29 +493,199 @@
               </li>
             </ul>
           </li>
+          @elseif(Auth::user()->role == 'Staff24')
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-video"></i>
+              <i class="nav-icon fas fa-user-circle"></i>
               <p>
-                Data Video
+                Data Penduduk RT 24
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('video') }}" class="nav-link">
+                <a href="{{ url('penduduk') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Data Video</p>
+                  <p>List Data Penduduk</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('video/add') }}" class="nav-link">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Data Video</p>
+                  <p>Add Data Penduduk</p>
                 </a>
               </li>
             </ul>
           </li>
+          @elseif(Auth::user()->role == 'Staff25')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 25
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @elseif(Auth::user()->role == 'Staff26')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 26
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @elseif(Auth::user()->role == 'Staff27')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 27
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @elseif(Auth::user()->role == 'Staff28')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 28
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @elseif(Auth::user()->role == 'Staff29')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 29
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @elseif(Auth::user()->role == 'Staff41')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 41
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @elseif(Auth::user()->role == 'Staff48')
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Data Penduduk RT 48
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('penduduk') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Data Penduduk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('penduduk/add') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Data Penduduk</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           @endif
           <li><a href="{{ url('/logout') }}"><i class="fas fa-fw fa-sign-out-alt"></i> Logout</span></a></li>
         </ul>

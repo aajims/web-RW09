@@ -11,10 +11,10 @@
 						<th>#</th>
 						<th>RT </th>
 						<th>Nama </th>
-						<th>Jenis Kelamin </th>
+						<th>L/P </th>
 						<th>Status </th>
 						<th>Pendidikan </th>
-						<th>Satatus Keluarga</th>
+						<th>Status Keluarga</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -44,9 +44,63 @@
 	            {data: 'rts.nama', name: 'rt'},
 	            {data: 'nama_lengkap', name: 'nama_lengkap'},
 	            {data: 'jk', name: 'jk'},
-	            {data: 'status_perkawinan', name: 'status_perkawinan'},
-	            {data: 'pendidikan_terakhir', name: 'pendidikan_terakhir'},
-	            {data: 'status_keluarga', name: 'status_keluarga'},
+	            {data: 'status_perkawinan', 
+				render: function(data){
+                    if(data == '1'){
+						let kawin = 'Kawin'
+						return '<span class="sts bg-green">' + kawin + '</span>';
+                    } else if (data == '2') {
+						let belum = 'Belum Kawin'
+						return '<span class="sts bg-yelloe">' + belum + '</span>';
+					} else if (data == '3') {
+						let mati = 'Cerai Mati'
+						return '<span class="sts bg-red">' + mati + '</span>';
+					} else if (data == '4') {
+						let hidup = 'Cerai Hidup'
+						return '<span class="sts bg-red">' + hidup + '</span>';
+					} else {
+						return '';
+					}
+				},
+				name: 'status_perkawinan'},
+	            {data: 'pendidikan_terakhir', 
+				render: function(data){
+                    if(data == '1'){
+						let smp = 'SMP/Sederajat'
+						return '<span class="sts pengajuan">' + smp + '</span>';
+                    } else if (data == '2') {
+						let smu = 'SMU/Sederajat'
+						return '<span class="sts pengajuan">' + smu + '</span>';
+					} else if (data == '3') {
+						let s1 = 'Strata 1'
+						return '<span class="sts pengajuan">' + s1 + '</span>';
+					} else if (data == '4') {
+						let s2 = 'Strata 2'
+						return '<span class="sts pengajuan">' + s2 + '</span>';
+					} else if (data == '3') {
+						let s3 = 'Strata 3'
+						return '<span class="sts pengajuan">' + s3 + '</span>';
+					} else {
+						return '';
+					}
+				},
+				name: 'pendidikan_terakhir'},
+	            {data: 'status_keluarga',
+				render: function(data){
+                    if(data == '1'){
+						let kepala = 'Kepala Keluarga'
+						return '<span class="sts bg-green">' + kepala + '</span>';
+                    } else if (data == '2') {
+						let istri = 'Istri'
+						return '<span class="sts bg-yellow">' + istri + '</span>';
+					} else if (data == '3') {
+						let anak = 'Anak'
+						return '<span class="sts pengajuan">' + anak + '</span>';
+					}  else {
+						return '';
+					}
+				},
+				 name: 'status_keluarga'},
 	            {data: 'action', name: 'action'}
 	            ]
 	        });

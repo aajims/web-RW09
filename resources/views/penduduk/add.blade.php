@@ -8,16 +8,6 @@
 				{{ csrf_field() }}
 				<div class="box-body">
 					<div class="form-group">
-						<label>Pilih RT</label>
-						<select class="form-control" name="rt">
-							<option value=""> -- Pilih RT --</option>
-							@foreach ($rt as $item)
-							<option value="{{ $item->id }}"> {{ $item->nama }}</option>
-							@endforeach
-							</select>
-							<span class="text-danger">{{ $errors->first('kategori_id') }}</span>
-					</div>
-					<div class="form-group">
 						<label for="">Nama Lengkap</label>
 						<input type="text" name="nama_lengkap" class="form-control"  placeholder="Input Nama Lengkap">
 						<span class="text-danger">{{ $errors->first('nama_lengkap') }}</span>
@@ -33,8 +23,8 @@
 						<label>Jenis Kelamin</label>
 						<select class="form-control" name="jk">
 							<option value=""> -- Pilih  --</option>
-							<option value="Laki-laki"> Laki-laki </option>
-							<option value="Perempuan"> Perempuan </option>
+							<option value="L"> Laki-laki </option>
+							<option value="P"> Perempuan </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('jk') }}</span>
 					</div>
@@ -42,10 +32,10 @@
 						<label>Status Perkawinan</label>
 						<select class="form-control" name="status_perkawinan">
 							<option value=""> -- Pilih Status --</option>
-							<option value="Kawin"> Kawin </option>
-							<option value="Belum Kawin"> Belum Kawin </option>
-							<option value="Cerai Mati"> Cerai Mati </option>
-							<option value="Cerai Hidup"> Cerai Hidup </option>
+							<option value="1"> Kawin </option>
+							<option value="2"> Belum Kawin </option>
+							<option value="3"> Cerai Mati </option>
+							<option value="4"> Cerai Hidup </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('status_perkawinan') }}</span>
 					</div>
@@ -69,12 +59,12 @@
 						<label>Agama</label>
 						<select class="form-control" name="agama">
 							<option value=""> -- Pilih Agama --</option>
-							<option value="Islam"> Islam </option>
-							<option value="Kristen"> Kristen </option>
-							<option value="Katolik"> Katolik </option>
-							<option value="Hindu"> Hindu </option>
-							<option value="Budha"> Budha </option>
-							<option value="Konghucu"> Konghucu </option>
+							<option value="1"> Islam </option>
+							<option value="2"> Kristen </option>
+							<option value="3"> Katolik </option>
+							<option value="4"> Hindu </option>
+							<option value="5"> Budha </option>
+							<option value="6"> Konghucu </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('agama') }}</span>
 					</div>
@@ -82,12 +72,11 @@
 						<label>Pendidikan Terakhir</label>
 						<select class="form-control" name="pendidikan_terakhir">
 							<option value=""> -- Pilih Pendidikan --</option>
-							<option value="SD"> SD </option>
-							<option value="SMP"> SMP </option>
-							<option value="SMU"> SMU </option>
-							<option value="S1"> Strata 1 </option>
-							<option value="S2"> Strata 2 </option>
-							<option value="S3"> Strata 3 </option>
+							<option value="1"> SMP/Sederajat </option>
+							<option value="2"> SMU/Sederajat </option>
+							<option value="3"> Strata 1 </option>
+							<option value="4"> Strata 2 </option>
+							<option value="5"> Strata 3 </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('pendidikan_terakhir') }}</span>
 					</div>
@@ -95,15 +84,15 @@
 						<label>Pekerjaan</label>
 						<select class="form-control" name="pekerjaan">
 							<option value=""> -- Pilih Pekerjaan --</option>
-							<option value="Karyawan Swasta"> Karyawan Swasta </option>
-							<option value="Pelajar/ Mahasiswa"> Pelajar/ Mahasiswa </option>
-							<option value="Pewagai Negeri Sipil"> Pewagai Negeri Sipil </option>
-							<option value="Pedagang"> Pedagang </option>
-							<option value="Wiraswasta"> Wiraswasta </option>
-							<option value="Ibu Rumah Tangga"> Ibu Rumah Tangga </option>
-							<option value="Petani/ Pekebun"> Petani/ Pekebun </option>
-							<option value="Nelayan"> Nelayan </option>
-							<option value="Lainya"> Lainya </option>
+							<option value="1"> Karyawan Swasta </option>
+							<option value="2"> Pelajar/ Mahasiswa </option>
+							<option value="3"> Pewagai Negeri Sipil </option>
+							<option value="4"> Pedagang </option>
+							<option value="5"> Wiraswasta </option>
+							<option value="6"> Ibu Rumah Tangga </option>
+							<option value="7"> Petani/ Pekebun </option>
+							<option value="8"> Nelayan </option>
+							<option value="9"> Lainya </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('pekerjaan') }}</span>
 					</div>
@@ -111,9 +100,9 @@
 						<label>Status di Keluarga</label>
 						<select class="form-control" name="status_keluarga">
 							<option value=""> -- Pilih Status --</option>
-							<option value="Kepala Keluarga"> Kepala Keluarga </option>
-							<option value="Istri"> Istri </option>
-							<option value="Anak"> Anak </option>
+							<option value="1"> Kepala Keluarga </option>
+							<option value="2"> Istri </option>
+							<option value="3"> Anak </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('status_keluarga') }}</span>
 					</div>
@@ -121,18 +110,18 @@
 						<label>Status Rumah Tinggal</label>
 						<select class="form-control" name="status_rumah_tinggal">
 							<option value=""> -- Pilih Status --</option>
-							<option value="Rumah Sendiri"> Rumah Sendiri </option>
-							<option value="Kontrak/Sewa"> Kontrak/Sewa</option>
-							<option value="Dinas"> Dinas </option>
+							<option value="1"> Rumah Sendiri </option>
+							<option value="2"> Kontrak/Sewa</option>
+							<option value="3"> Dinas </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('status_rumah_tinggal') }}</span>
 					</div>
 					<div class="form-group">
 						<label>Status Ekonomi</label>
 						<select class="form-control" name="status_ekonomi">
-							<option value="Ekonomi Atas"> Ekonomi Atas </option>
-							<option value="Ekonomi Sedang"> Ekonomi Sedang</option>
-							<option value="Ekonomi Bawah"> Ekonomi Bawah </option>
+							<option value="1"> Ekonomi Atas </option>
+							<option value="2"> Ekonomi Sedang</option>
+							<option value="3"> Ekonomi Bawah </option>
 							</select>
 							<span class="text-danger">{{ $errors->first('status_ekonomi') }}</span>
 					</div>

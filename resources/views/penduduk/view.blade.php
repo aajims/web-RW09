@@ -5,13 +5,10 @@
 
 	<div class="col-md-10">
 		<div class="card-body">
-			<form role="form" method="post" action="{{ url('penduduk/'.$penduduk->id) }}">
-				{{ csrf_field() }}
-				{{ method_field('PUT') }}
 				<div class="box-body">
 					<div class="form-group">
 						<label for="">Nama Lengkap</label>
-						<input type="text" name="nama_lengkap" class="form-control" value="{{ $penduduk->nama_lengkap }}" placeholder="Input Nama Lengkap">
+						<input type="text" name="nama_lengkap" class="form-control" value="{{ $penduduk->nama_lengkap }}" placeholder="Input Nama Lengkap" disabled>
 						<span class="text-danger">{{ $errors->first('nama_lengkap') }}</span>
 					</div>
 					<div class="form-group">
@@ -33,7 +30,7 @@
 					</div>
 					<div class="form-group">
 						<label>Status Perkawinan</label>
-						<select class="form-control" name="status_perkawinan">
+						<select class="form-control" name="status_perkawinan" disabled>
 							@if ($penduduk->status_perkawinan == '1')
 								<option value="{{ $penduduk->status_perkawinan }}"> Kawin</option>
 							@elseif ($penduduk->status_perkawinan == '2')
@@ -69,7 +66,7 @@
 					</div>
 					<div class="form-group">
 						<label>Agama</label>
-						<select class="form-control" name="agama">
+						<select class="form-control" name="agama" disabled>
 							@if ($penduduk->agama == '1')
 								<option value="{{ $penduduk->agama }}"> Islam</option>
 							@elseif ($penduduk->agama == '2')
@@ -95,7 +92,7 @@
 					</div>
 					<div class="form-group">
 						<label>Pendidikan Terakhir</label>
-						<select class="form-control" name="pendidikan_terakhir">
+						<select class="form-control" name="pendidikan_terakhir" disabled>
 							@if ($penduduk->pendidikan_terakhir == '1')
 								<option value="{{ $penduduk->pendidikan_terakhir }}"> SMP/Sederajat</option>
 							@elseif ($penduduk->pendidikan_terakhir == '2')
@@ -118,7 +115,7 @@
 					</div>
 					<div class="form-group">
 						<label>Pekerjaan</label>
-						<select class="form-control" name="pekerjaan">
+						<select class="form-control" name="pekerjaan" disabled>
 							@if ($penduduk->pekerjaan == '1')
 								<option value="{{ $penduduk->pekerjaan }}"> Karyawan Swasta</option>
 							@elseif ($penduduk->pekerjaan == '2')
@@ -153,7 +150,7 @@
 					</div>
 					<div class="form-group">
 						<label>Status di Keluarga</label>
-						<select class="form-control" name="status_keluarga">
+						<select class="form-control" name="status_keluarga" disabled>
 							@if ($penduduk->status_keluarga == '1')
 								<option value="{{ $penduduk->status_keluarga }}"> Kepala Keluarga</option>
 							@elseif ($penduduk->status_keluarga == '2')
@@ -170,7 +167,7 @@
 					</div>
 					<div class="form-group">
 						<label>Status Rumah Tinggal</label>
-						<select class="form-control" name="status_rumah_tinggal">
+						<select class="form-control" name="status_rumah_tinggal" disabled>
 							@if ($penduduk->status_rumah_tinggal == '1')
 								<option value="{{ $penduduk->status_rumah_tinggal }}"> Rumah Sendiri</option>
 							@elseif ($penduduk->status_rumah_tinggal == '2')
@@ -187,7 +184,7 @@
 					</div>
 					<div class="form-group">
 						<label>Status Ekonomi</label>
-						<select class="form-control" name="status_ekonomi">
+						<select class="form-control" name="status_ekonomi" disabled>
 							@if ($penduduk->status_ekonomi == '1')
 								<option value="{{ $penduduk->status_ekonomi }}"> Ekonomi Atas</option>
 							@elseif ($penduduk->status_ekonomi == '2')
@@ -208,7 +205,6 @@
 				<!-- /.box-body -->
 				<div class="box-footer">
 					<a href="<?=$url; ?>" class="btn btn-danger"> Back</a>
-					<button type="submit" class="btn btn-primary">Update</button>
 				</div>
 			</form>
 		</div>

@@ -112,13 +112,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::delete('slide/{id}', 'App\Http\Controllers\SlideController@delete')->middleware(['checkRole:Super Admin,Admin']);
 
       //Penduduk
-      Route::get('penduduk', 'App\Http\Controllers\PendudukController@index')->middleware(['checkRole:Super Admin,Admin,Staff']);
+      Route::get('penduduk', 'App\Http\Controllers\PendudukController@index')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
       Route::get('penduduk/yajra', 'App\Http\Controllers\PendudukController@yajra');
-      Route::get('penduduk/add', 'App\Http\Controllers\PendudukController@add')->middleware(['checkRole:Super Admin,Admin,Staff']);
-      Route::post('penduduk/store', 'App\Http\Controllers\PendudukController@store')->middleware(['checkRole:Super Admin,Admin,Staff']);
-      Route::get('penduduk/{id}', 'App\Http\Controllers\PendudukController@edit')->middleware(['checkRole:Super Admin,Admin,Staff']);
-      Route::put('penduduk/{id}', 'App\Http\Controllers\PendudukController@update')->middleware(['checkRole:Super Admin,Admin,Staff']);
-      Route::delete('penduduk/{id}', 'App\Http\Controllers\PendudukController@delete')->middleware(['checkRole:Super Admin,Admin,Staff']);
+      Route::get('penduduk/add', 'App\Http\Controllers\PendudukController@add')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
+      Route::post('penduduk/store', 'App\Http\Controllers\PendudukController@store')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
+      Route::get('penduduk/{id}', 'App\Http\Controllers\PendudukController@edit')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
+      Route::get('penduduk/detail/{id}', 'App\Http\Controllers\PendudukController@detail')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
+      Route::put('penduduk/{id}', 'App\Http\Controllers\PendudukController@update')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
+      Route::delete('penduduk/{id}', 'App\Http\Controllers\PendudukController@delete')->middleware(['checkRole:Super Admin,Admin,Staff23,Staff24,Staff25,Staff26,Staff27,Staff28,Staff29,Staff41,Staff48']);
 
     //Data Dokumen
     Route::get('dokumen', 'App\Http\Controllers\DokumenController@index')->middleware(['checkRole:Super Admin,Admin']);
