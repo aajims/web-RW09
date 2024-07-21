@@ -48,16 +48,16 @@
 				render: function(data){
                     if(data == '1'){
 						let kawin = 'Kawin'
-						return '<span class="sts bg-green">' + kawin + '</span>';
+						return '<span class="status bg-green">' + kawin + '</span>';
                     } else if (data == '2') {
 						let belum = 'Belum Kawin'
-						return '<span class="sts bg-yelloe">' + belum + '</span>';
+						return '<span class="status bg-yellow">' + belum + '</span>';
 					} else if (data == '3') {
 						let mati = 'Cerai Mati'
-						return '<span class="sts bg-red">' + mati + '</span>';
+						return '<span class="status bg-red">' + mati + '</span>';
 					} else if (data == '4') {
 						let hidup = 'Cerai Hidup'
-						return '<span class="sts bg-red">' + hidup + '</span>';
+						return '<span class="status bg-red">' + hidup + '</span>';
 					} else {
 						return '';
 					}
@@ -67,19 +67,19 @@
 				render: function(data){
                     if(data == '1'){
 						let smp = 'SMP/Sederajat'
-						return '<span class="sts pengajuan">' + smp + '</span>';
+						return '<span class="status bg-smp">' + smp + '</span>';
                     } else if (data == '2') {
 						let smu = 'SMU/Sederajat'
-						return '<span class="sts pengajuan">' + smu + '</span>';
+						return '<span class="status bg-smu">' + smu + '</span>';
 					} else if (data == '3') {
 						let s1 = 'Strata 1'
-						return '<span class="sts pengajuan">' + s1 + '</span>';
+						return '<span class="status bg-s1">' + s1 + '</span>';
 					} else if (data == '4') {
 						let s2 = 'Strata 2'
-						return '<span class="sts pengajuan">' + s2 + '</span>';
+						return '<span class="status bg-s1">' + s2 + '</span>';
 					} else if (data == '3') {
 						let s3 = 'Strata 3'
-						return '<span class="sts pengajuan">' + s3 + '</span>';
+						return '<span class="status bg-s1">' + s3 + '</span>';
 					} else {
 						return '';
 					}
@@ -89,13 +89,13 @@
 				render: function(data){
                     if(data == '1'){
 						let kepala = 'Kepala Keluarga'
-						return '<span class="sts bg-green">' + kepala + '</span>';
+						return '<span class="status bg-green">' + kepala + '</span>';
                     } else if (data == '2') {
 						let istri = 'Istri'
-						return '<span class="sts bg-yellow">' + istri + '</span>';
+						return '<span class="status bg-yellow">' + istri + '</span>';
 					} else if (data == '3') {
 						let anak = 'Anak'
-						return '<span class="sts pengajuan">' + anak + '</span>';
+						return '<span class="status pengajuan">' + anak + '</span>';
 					}  else {
 						return '';
 					}
