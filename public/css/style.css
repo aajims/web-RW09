@@ -38,10 +38,22 @@
     background-color: #dd4b39 !important;
     color: #fff !important;
 }
+.bg-smp {
+    background-color: #152A55 !important;
+    color: #fff !important;
+}
+.bg-smu {
+    background-color: #4D698A !important;
+    color: #fff !important;
+}
+.bg-s1 {
+    background-color: #8892C9 !important;
+    color: #fff !important;
+}
 .vs {
     margin-top: 35px;
 }
-.sts {
-    padding: 3px 15px;
+.status {
+    padding: 3px 15px!important;
     border-radius: 11px;
 }
