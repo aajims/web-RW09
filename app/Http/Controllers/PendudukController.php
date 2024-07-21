@@ -72,7 +72,7 @@ class PendudukController extends Controller
         $title = 'Data Penduduk';
         $subtitle = 'Penduduk';
         $rt = Rt::all();
-        return view('Penduduk.add', compact('title', 'subtitle', 'rt'));
+        return view('penduduk.add', compact('title', 'subtitle', 'rt'));
     }
 
     public function store(Request $request)
