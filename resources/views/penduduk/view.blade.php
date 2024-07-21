@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 	<div class="col-md-10">
 		<div class="card-body">
 				<div class="box-body">

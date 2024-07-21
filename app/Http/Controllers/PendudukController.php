@@ -44,13 +44,24 @@ class PendudukController extends Controller
 
     public function yajra(Request $request){
         $user = Auth::user();
+        if ($user->role == 'Admin') {
+            $kategori = Penduduk::with('rts')->select([
+                'id', 'rt_id', 'nama_lengkap', 'jk', 'status_perkawinan', 'pendidikan_terakhir', 'status_keluarga'])->latest()->get();
+                $datatables = Datatables::of($kategori)
+                ->addIndexColumn()
+            ->addColumn('action',function($rows){
+                return '<center>
+                <a href="penduduk/detail/'.$rows->id.'" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Detail</a>';
+            });
+            return $datatables->make(true);
+        }
         $kategori = Penduduk::where('role', $user->role)->with('rts')->select([
             'id', 'rt_id', 'nama_lengkap', 'jk', 'status_perkawinan', 'pendidikan_terakhir', 'status_keluarga'])->latest();
         $datatables = Datatables::of($kategori)
         ->addIndexColumn()
         ->addColumn('action',function($rows){
             return '<center>
-            <a href="penduduk/detail/'.$rows->id.'" class="btn btn-sm btn-default"><i class="fas fa-pencil-alt"></i> Detail</a>
+            <a href="penduduk/detail/'.$rows->id.'" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Detail</a>
             <a href="penduduk/'.$rows->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>';
         });
         return $datatables->make(true);
