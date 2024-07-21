@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('status_keluarga',90);
             $table->string('status_rumah_tinggal',90);
             $table->string('status_ekonomi',90);
+            $table->string('role',30);
             $table->timestamps();
         });
     }
