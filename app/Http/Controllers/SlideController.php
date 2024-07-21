@@ -21,7 +21,7 @@ class SlideController extends Controller
     }
 
     public function list() {
-        $data = Slide::where('status', '1')->latest()->get();
+        $data = Slide::where('status', '1')->latest()->limit(15)->get();
         $response=[
             'status'=>'success',
             'message'=>'list Data Slide',
