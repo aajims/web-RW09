@@ -78,13 +78,13 @@ class FotoController extends Controller
     		'agenda_id'=>'required',
             'images' => 'file|image|max:2048', // Maksimal 2 MB
          ]);
-
+         if ($request->hasFile('images')) {
          $picName = $request->file('images')->getClientOriginalExtension();
          $picName = Carbon::now()->timestamp. '.' . $picName;
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(955, 405);
+         $img->resize(905, 405);
          $img->save($uploadedImage);
 
          $foto = new Foto;
@@ -94,6 +94,10 @@ class FotoController extends Controller
          $foto->save();
          Alert::success('Success', 'Data Berhasil di Simpan');
          return redirect('foto');
+         } else {
+            Alert::error('error', 'Upload Data Foto Gagal');
+            return redirect('foto/add');
+         }
     }
 
     public function edit($id)
@@ -119,7 +123,7 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(955, 405);
+         $img->resize(905, 405);
          $img->save($uploadedImage);
 
          $foto = Foto::find($id);

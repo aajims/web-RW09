@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Penduduk;
 use App\Models\Keuangan;
 use App\Models\AgendaKegiatan;

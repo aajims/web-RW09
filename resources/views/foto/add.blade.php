@@ -27,8 +27,9 @@
 						<div class="col">
 							<div class="form-group">
 								<label for="">Foto Kegiatan</label>
-								<input type="file" name="images" class="filepond" accept="image/png, image/jpeg, image/gif" />
+								<input type="file" name="images" class="form-control" accept="image/png, image/jpeg, image/gif" onchange="loadFile(event)" />
 								<span>Upload Foto Max 2 Mb</span>
+								<p><img id="output" width="250" /></p>
 							</div>
 						</div>
 					</div>
@@ -49,8 +50,9 @@
 
 @section('scripts')
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('.filepond').filepond();
-	})
+	var loadFile = function(event) {
+		var image = document.getElementById('output');
+		image.src = URL.createObjectURL(event.target.files[0]);
+	}
 </script>
 @endsection
