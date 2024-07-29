@@ -22,10 +22,19 @@ class PendudukController extends Controller
     }
 
     public function list() {
-        $data = Penduduk::with('rts')->latest()->paginate(15);
+      $rt23 = Penduduk::where('rt_id', '1')->count();
+      $rt24 = Penduduk::where('rt_id', '2')->count();
+      $rt25 = Penduduk::where('rt_id', '3')->count();
+      $rt26 = Penduduk::where('rt_id', '4')->count();
+      $rt27 = Penduduk::where('rt_id', '5')->count();
+      $rt28 = Penduduk::where('rt_id', '6')->count();
+      $rt29 = Penduduk::where('rt_id', '7')->count();
+      $rt41 = Penduduk::where('rt_id', '8')->count();
+      $rt48 = Penduduk::where('rt_id', '9')->count();
+      $data = compact('rt23', 'rt24', 'rt25', 'rt26', 'rt27', 'rt28', 'rt29', 'rt41', 'rt48');
         $response=[
             'status'=>'success',
-            'message'=>'Keuangan list',
+            'message'=>'Penduduk list',
             'data' => $data,
         ];
         return response()->json($response, 200);
