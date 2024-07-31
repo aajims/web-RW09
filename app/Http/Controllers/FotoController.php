@@ -84,7 +84,7 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(805, 405);
+         $img->resize(805, 455);
          $img->save($uploadedImage);
 
          $foto = new Foto;
@@ -123,16 +123,22 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(805, 405);
+         $img->resize(805, 455);
          $img->save($uploadedImage);
 
          $foto = Foto::find($id);
          $foto->agenda_id = $request->input('agenda_id');
          $foto->caption = $request->input('caption');
-         $oldFile = $foto->foto;
-         if (file_exists($oldFile)) {
-            unlink($oldFile);
-         }
+         $oldFile = 'assets/img/foto/'.$foto->images;
+            if (file_exists($oldFile)) {
+                if (unlink($oldFile)) {
+                    echo "File $oldFile telah dihapus.";
+                } else {
+                    echo "Gagal menghapus file $oldFile.";
+                }
+            } else {
+                echo "File $oldFile tidak ditemukan.";
+            }
          $foto->images = $destinationPath;
          $foto->save();
         Alert::success('Success', 'Data Berhasil di Update');
