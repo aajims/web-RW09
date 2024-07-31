@@ -31,7 +31,7 @@ class FotoController extends Controller
     }
 
     public function slide() {
-        $foto = Foto::with('agenda')->orderByDesc('id')->skip(0)->take(6)->get();
+        $foto = Foto::with('agenda')->orderByDesc('id')->skip(0)->take(11)->get();
         $response=[
             'status'=>'success',
             'message'=>'Foto list',
@@ -84,7 +84,7 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(905, 405);
+         $img->resize(805, 405);
          $img->save($uploadedImage);
 
          $foto = new Foto;
@@ -123,7 +123,7 @@ class FotoController extends Controller
          $uploadedImage = $request->images->move(public_path('assets/img/foto/'), $picName);
          $destinationPath = 'assets/img/foto/' . $picName;
          $img = Image::make($uploadedImage);
-         $img->resize(905, 405);
+         $img->resize(805, 405);
          $img->save($uploadedImage);
 
          $foto = Foto::find($id);
