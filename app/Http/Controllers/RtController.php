@@ -60,18 +60,36 @@ class RtController extends Controller
          ]);
 
          if ($request->hasFile('foto')) {
-            $picName = $request->file('foto')->getClientOriginalExtension();
-            $picName = Carbon::now()->timestamp. '.' . $picName;
-            $uploadedImage = $request->foto->move(public_path('assets/img/rt/'), $picName);
-            $destinationPath = 'assets/img/rt/'.$picName;
-            $img = Image::make($uploadedImage);
-            $img->resize(165, 165);
-            $img->save($uploadedImage);
+            $picNameKetua = $request->file('foto')->getClientOriginalExtension();
+            $picNameKetua = Carbon::now()->timestamp. '.' . $picNameKetua;
+            $uploadedImageKetua = $request->foto->move(public_path('assets/img/rt/'), $picNameKetua);
+            $destinationPathKetua = 'assets/img/rt/'.$picNameKetua;
+            $imgKetua = Image::make($uploadedImageKetua);
+            $imgKetua->resize(205, 205);
+            $imgKetua->save($uploadedImageKetua);
+   
+            $picNameSekertaris = $request->file('foto1')->getClientOriginalExtension();
+            $picNameSekertaris = Carbon::now()->timestamp. '.' . $picNameSekertaris;
+            $uploadedImageSekertaris = $request->foto1->move(public_path('assets/img/rt/'), $picNameSekertaris);
+            $destinationPathSekertaris = 'assets/img/rt/'.$picNameSekertaris;
+            $imgSekertaris = Image::make($uploadedImageSekertaris);
+            $imgSekertaris->resize(205, 205);
+            $imgSekertaris->save($uploadedImageSekertaris);
+   
+            $picNameBendahara = $request->file('foto2')->getClientOriginalExtension();
+            $picNameBendahara = Carbon::now()->timestamp. '.' . $picNameBendahara;
+            $uploadedImageBendahara = $request->foto2->move(public_path('assets/img/rt/'), $picNameBendahara);
+            $destinationPathBendahara = 'assets/img/rt/'.$picNameBendahara;
+            $imgBendahara = Image::make($uploadedImageBendahara);
+            $imgBendahara->resize(205, 205);
+            $imgBendahara->save($uploadedImageBendahara);
 
             $rt = new Rt;
             $rt->nama = $request->input('nama');
             $rt->ketua = $request->input('ketua');
-            $rt->foto = $destinationPath;
+            $rt->foto = $destinationPathKetua;
+            $rt->foto1 = $destinationPathSekertaris;
+            $rt->foto2 = $destinationPathBendahara;
             $rt->sekertaris = $request->input('sekertaris');
             $rt->bendahara = $request->input('bendahara');
             $rt->save();
@@ -110,29 +128,74 @@ class RtController extends Controller
          ]);
 
         if ($request->hasFile('foto')) {
-        $picName = $request->file('foto')->getClientOriginalExtension();
-        $picName = Carbon::now()->timestamp. '.' . $picName;
-        $uploadedImage = $request->foto->move(public_path('assets/img/rt/'), $picName);
-        $destinationPath = 'assets/img/rt/'.$picName;
-        $img = Image::make($uploadedImage);
-        $img->resize(165, 165);
-        $img->save($uploadedImage);
-
-         $rt = Rt::find($id);
-         $rt->nama = $request->input('nama');
-         $oldFile = $rt->foto;
-         if (file_exists($oldFile)) {
-            unlink($oldFile);
-         }
-         $rt->foto = $destinationPath;
-         $rt->ketua = $request->input('ketua');
-         $rt->sekertaris = $request->input('sekertaris');
-         $rt->bendahara = $request->input('bendahara');
-         $rt->save();
-         if (response()->json('code' == 200)) {
-            Alert::toast('Data Berhasil di Update', 'success');
-            return redirect('rt');
-         }
+            $picNameKetua = $request->file('foto')->getClientOriginalExtension();
+            $picNameKetua = Carbon::now()->timestamp. '-ket.' . $picNameKetua;
+            $uploadedImageKetua = $request->foto->move(public_path('assets/img/rt/'), $picNameKetua);
+            $destinationPathKetua = 'assets/img/rt/'.$picNameKetua;
+            $imgKetua = Image::make($uploadedImageKetua);
+            $imgKetua->resize(205, 205);
+            $imgKetua->save($uploadedImageKetua);
+            $rt = Rt::find($id);
+            $rt->nama = $request->input('nama');
+            $oldFile = $rt->foto;
+            if (file_exists($oldFile)) {
+               unlink($oldFile);
+            }
+            $rt->foto = $destinationPathKetua;
+            $rt->ketua = $request->input('ketua');
+            $rt->sekertaris = $request->input('sekertaris');
+            $rt->bendahara = $request->input('bendahara');
+            $rt->save();
+            if (response()->json('code' == 200)) {
+               Alert::toast('Data Berhasil di Update', 'success');
+               return redirect('rt');
+            }
+        } elseif ($request->hasFile('foto1')) {
+            $picNameSekertaris = $request->file('foto1')->getClientOriginalExtension();
+            $picNameSekertaris = Carbon::now()->timestamp. '-sek.' . $picNameSekertaris;
+            $uploadedImageSekertaris = $request->foto1->move(public_path('assets/img/rt/'), $picNameSekertaris);
+            $destinationPathSekertaris = 'assets/img/rt/'.$picNameSekertaris;
+            $imgSekertaris = Image::make($uploadedImageSekertaris);
+            $imgSekertaris->resize(205, 205);
+            $imgSekertaris->save($uploadedImageSekertaris);
+            $rt = Rt::find($id);
+            $rt->nama = $request->input('nama');
+            $oldFile = $rt->foto1;
+            if (file_exists($oldFile)) {
+               unlink($oldFile);
+            }
+            $rt->foto1 = $destinationPathSekertaris;
+            $rt->ketua = $request->input('ketua');
+            $rt->sekertaris = $request->input('sekertaris');
+            $rt->bendahara = $request->input('bendahara');
+            $rt->save();
+            if (response()->json('code' == 200)) {
+               Alert::toast('Data Berhasil di Update', 'success');
+               return redirect('rt');
+            }
+        } elseif ($request->hasFile('foto2')) { 
+            $picNameBendahara = $request->file('foto2')->getClientOriginalExtension();
+            $picNameBendahara = Carbon::now()->timestamp. '-bend.' . $picNameBendahara;
+            $uploadedImageBendahara = $request->foto2->move(public_path('assets/img/rt/'), $picNameBendahara);
+            $destinationPathBendahara = 'assets/img/rt/'.$picNameBendahara;
+            $imgBendahara = Image::make($uploadedImageBendahara);
+            $imgBendahara->resize(205, 205);
+            $imgBendahara->save($uploadedImageBendahara);
+            $rt = Rt::find($id);
+            $rt->nama = $request->input('nama');
+            $oldFile = $rt->foto2;
+            if (file_exists($oldFile)) {
+                unlink($oldFile);
+            }
+            $rt->foto2 = $destinationPathBendahara;
+            $rt->ketua = $request->input('ketua');
+            $rt->sekertaris = $request->input('sekertaris');
+            $rt->bendahara = $request->input('bendahara');
+            $rt->save();
+            if (response()->json('code' == 200)) {
+                Alert::toast('Data Berhasil di Update', 'success');
+                return redirect('rt');
+            }
         } else {
             $rt = Rt::find($id);
             $rt->nama = $request->input('nama');
