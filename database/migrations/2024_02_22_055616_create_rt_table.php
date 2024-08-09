@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama',10);
             $table->string('foto',130);
+            $table->string('foto1',130);
+            $table->string('foto2',130);
             $table->string('ketua',120);
             $table->string('sekertaris',120);
             $table->string('bendahara',120);
