@@ -51,7 +51,7 @@ class PendudukController extends Controller
         return response()->json($response, 200);
     }
 
-    public function yajra(Request $request){
+    public function yajra(){
         $user = Auth::user();
         if ($user->role == 'Admin') {
             $kategori = Penduduk::with('rts')->select([
@@ -69,9 +69,20 @@ class PendudukController extends Controller
         $datatables = Datatables::of($kategori)
         ->addIndexColumn()
         ->addColumn('action',function($rows){
-            return '<center>
-            <a href="penduduk/detail/'.$rows->id.'" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Detail</a>
-            <a href="penduduk/'.$rows->id.'" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>';
+         return '<center>
+            <div class="dropdown">
+                <button class="btn btn-menu" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                     <a href="penduduk/detail/'.$rows->id.'" class="dropdown-item"><i class="fas fa-eye"></i> Detail</a>
+                     <a href="penduduk/'.$rows->id.'" class="dropdown-item"><i class="fas fa-pencil-alt"></i> Edit</a>
+                     <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$rows->id.'" data-original-title="Delete" class="dropdown-item deleteData"><i class="fas fa-trash"></i> Delete</a>
+                </div>
+            </div>
+            </center>';
         });
         return $datatables->make(true);
     }

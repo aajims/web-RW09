@@ -153,6 +153,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('jadwal/{id}', 'App\Http\Controllers\JadwalController@edit')->middleware(['checkRole:Super Admin,Admin']);
     Route::put('jadwal/{id}', 'App\Http\Controllers\JadwalController@update')->middleware(['checkRole:Super Admin,Admin']);
 
+     //Data Karang Taruna
+     Route::get('karang-taruna', 'App\Http\Controllers\KarangTarunaController@index')->middleware(['checkRole:Super Admin,Admin']);
+     Route::get('karang-taruna/yajra', 'App\Http\Controllers\KarangTarunaController@yajra')->middleware(['checkRole:Super Admin,Admin']);
+     Route::get('karang-taruna/add', 'App\Http\Controllers\KarangTarunaController@add')->middleware(['checkRole:Super Admin,Admin']);
+     Route::post('karang-taruna/store', 'App\Http\Controllers\KarangTarunaController@store')->middleware(['checkRole:Super Admin,Admin']);
+     Route::get('karang-taruna/{id}', 'App\Http\Controllers\KarangTarunaController@edit')->middleware(['checkRole:Super Admin,Admin']);
+     Route::put('karang-taruna/{id}', 'App\Http\Controllers\KarangTarunaController@update')->middleware(['checkRole:Super Admin,Admin']);
+     Route::delete('karang-taruna/{id}', 'App\Http\Controllers\KarangTarunaController@delete')->middleware(['checkRole:Super Admin,Admin']);
 });
 
 Auth::routes();
