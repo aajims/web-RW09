@@ -197,6 +197,23 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-file-archive"></i>
+              <p>
+                Karang Taruna
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('karang-taruna') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Karang Taruna</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-futbol"></i>
               <p>
                 Data Cabang Olahraga
@@ -382,6 +399,23 @@
                     <a href="{{ url('dokumen') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>List Dokumen</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-file-archive"></i>
+                  <p>
+                    Karang Taruna
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('karang-taruna') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Data Karang Taruna</p>
                     </a>
                   </li>
                 </ul>
@@ -685,7 +719,6 @@
               </li>
             </ul>
           </li>
-
           @endif
           <li><a href="{{ url('/logout') }}"><i class="fas fa-fw fa-sign-out-alt"></i> Logout</span></a></li>
         </ul>

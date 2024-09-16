@@ -15,7 +15,7 @@
 						<th>Status </th>
 						<th>Pendidikan </th>
 						<th>Status Keluarga</th>
-						<th>Action</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 			</table>
@@ -107,10 +107,10 @@
 
 			$('body').on('click','.deleteData',function(e){
 				var id = $(this).data("id");
-				if(confirm("Are You sure want to delete this Data !")){
+				if(confirm("Apakah Anda Yakin mau Delete Data Ini !")){
 					$.ajax({
 						type: "DELETE",
-						url: "penduduk/delete/"+ id,
+						url: "penduduk/"+ id,
 						dataType: "JSON",
 						data: {
 							"_token": "{{ csrf_token() }}",
